@@ -1,0 +1,6 @@
+framework module Pods_MovieEnvoy {
+  umbrella header "Pods-MovieEnvoy-umbrella.h"
+
+  export *
+  module * { export * }
+}
