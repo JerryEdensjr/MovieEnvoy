@@ -10,20 +10,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Now Playing View Controller-->
+        <!--Now Playing-->
         <scene sceneID="F1A-xT-2WK">
             <objects>
                 <viewController storyboardIdentifier="NowPlayingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0AD-tr-R4k" customClass="NowPlayingViewController" customModule="MovieEnvoy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OuE-pO-rzt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="deviceRGB"/>
                         <viewLayoutGuide key="safeArea" id="tcb-LR-4AR"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="nowPlaying" landscapeImage="nowPlaying" id="cWX-qM-VPb"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRW-rC-OVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842" y="-309"/>
+            <point key="canvasLocation" x="852" y="-305"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nowPlaying" width="51.200000762939453" height="51.200000762939453"/>
+    </resources>
 </document>

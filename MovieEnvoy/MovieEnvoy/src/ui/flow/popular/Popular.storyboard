@@ -10,20 +10,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Popular View Controller-->
+        <!--Popular-->
         <scene sceneID="hn3-yy-dt6">
             <objects>
                 <viewController storyboardIdentifier="PopularViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Qff-7S-GJI" customClass="PopularViewController" customModule="MovieEnvoy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oIW-yh-iNj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.91402352840000001" blue="0.01927106411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="wDx-ND-VEf"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Popular" image="popular" landscapeImage="popular" id="nNd-Gk-U3L"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4v-K6-5H1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1265" y="-311"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="popular" width="51.200000762939453" height="51.200000762939453"/>
+    </resources>
 </document>

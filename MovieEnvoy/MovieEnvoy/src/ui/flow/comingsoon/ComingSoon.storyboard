@@ -10,19 +10,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Coming Soon View Controller-->
+        <!--Upcoming-->
         <scene sceneID="ht2-eg-udO">
             <objects>
                 <viewController storyboardIdentifier="ComingSoonViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fRU-VX-974" customClass="ComingSoonViewController" customModule="MovieEnvoy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4D1-vV-PsV" userLabel="rooot">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.45882352939999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="9KI-eY-d0j"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Upcoming" image="upcoming" landscapeImage="upcoming" id="ZNt-H4-rJb"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jV-X9-lmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <resources>
+        <image name="upcoming" width="51.200000762939453" height="51.200000762939453"/>
+    </resources>
 </document>

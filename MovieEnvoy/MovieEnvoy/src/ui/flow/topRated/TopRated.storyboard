@@ -6,11 +6,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Top Rated View Controller-->
+        <!--Top Rated-->
         <scene sceneID="W7X-bm-2u7">
             <objects>
                 <viewController storyboardIdentifier="TopRatedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gIP-ND-s2V" customClass="TopRatedViewController" customModule="MovieEnvoy" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,10 +21,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="l9E-9w-Dqg"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Top Rated" image="topRated" landscapeImage="topRated" id="l8j-h1-MtZ">
+                        <color key="badgeColor" name="tabbarTint"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVo-ZO-7Xq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="210" y="54"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="topRated" width="25.600000381469727" height="25.600000381469727"/>
+        <namedColor name="tabbarTint">
+            <color red="0.039215686274509803" green="0.45490196078431372" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,6 +18,7 @@
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" name="tabbarTint"/>
                     </tabBar>
                     <connections>
                         <segue destination="dAF-pP-SO7" kind="relationship" relationship="viewControllers" id="6nn-ib-0t8"/>
@@ -33,7 +35,7 @@
         <scene sceneID="cD7-xU-gLO">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="nowPlayingStoryboard" storyboardName="NowPlaying" referencedIdentifier="NowPlayingViewController" id="dAF-pP-SO7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Now Playing" id="Oo7-4H-wbJ"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="first" landscapeImage="first" selectedImage="second" id="Oo7-4H-wbJ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Er1-9U-XyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,7 +45,7 @@
         <scene sceneID="Hqr-oV-I29">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="popularStoryboard" storyboardName="Popular" referencedIdentifier="PopularViewController" id="pHk-Wt-5dp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Popular" id="OIW-CH-2MG"/>
+                    <tabBarItem key="tabBarItem" title="Popular" image="second" landscapeImage="second" selectedImage="second" id="OIW-CH-2MG"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5dG-up-k7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -53,7 +55,7 @@
         <scene sceneID="EPF-Tk-VVa">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="topRatedStoryboard" storyboardName="TopRated" referencedIdentifier="TopRatedViewController" id="fFQ-AU-aUK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Rated" id="LRS-jA-jBm"/>
+                    <tabBarItem key="tabBarItem" title="Top Rated" image="first" landscapeImage="first" selectedImage="first" id="LRS-jA-jBm"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RiR-ly-hnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,11 +65,18 @@
         <scene sceneID="jGO-CJ-1EO">
             <objects>
                 <viewControllerPlaceholder storyboardIdentifier="comingSoonStoryboard" storyboardName="ComingSoon" referencedIdentifier="ComingSoonViewController" id="Qkj-OF-pOy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Upcoming" id="bQW-yp-QFb"/>
+                    <tabBarItem key="tabBarItem" title="Upcoming" image="second" landscapeImage="second" selectedImage="second" id="bQW-yp-QFb"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xwb-Dc-xFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="788" y="125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="first" width="30" height="30"/>
+        <image name="second" width="30" height="30"/>
+        <namedColor name="tabbarTint">
+            <color red="0.039215686274509803" green="0.45490196078431372" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>
