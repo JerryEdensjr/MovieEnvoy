@@ -19,9 +19,9 @@ Time: 24 hrs. - Started 11:55 pm PT
     * Upcoming
 1.  Display results for each list in a UITableView
 1.  In each table cell:
-	1.  display the title
-	2.  overview
-	3.  posterPath of the movie
+	*  display the title
+	*  overview
+	*  posterPath of the movie
 1.  Load the posterPath image asynchronously
 1.  Language: Swift
 1.  Minimum supported iOS version: 11.0
