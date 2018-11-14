@@ -11,6 +11,10 @@ The requirement is to target 11.0.  Apple recommends targeting the last version 
 ### Time Limit
 Time: 24 hrs. - Started 11:55 pm PT
 
+### Todo's if there is time
+1.  Put API key into xcconfig
+
+
 ### Build an app with these requirements: 
 1.  List movie categories as a UITabBar, with the following categories:
     * Now Playing
@@ -37,4 +41,27 @@ Time: 24 hrs. - Started 11:55 pm PT
 #### Instructions upon completion
 Send link to a GitHub repo with the project. Please also note that we'd like to see your commit history in the repo as well. 
 
+### keys / tokens
+
+#### themoviedb.org
+
+#### Useful Links
+
+*  https://www.themoviedb.org/settings/api
+*  https://www.themoviedb.org/talk/5beca3090e0a2632810057c3?page=1#5beca3090e0a2632810057c5
+*  Documentation: https://www.themoviedb.org/documentation/api
+*  Support forum: https://www.themoviedb.org/talk/category/5047958519c29526b50017d6
+* Wrappers & libraries: https://www.themoviedb.org/documentation/api/wrappers-libraries
+
+**API Key (v3 auth)**
+
+68b13770194a73ff218ee6fae1f2c488
+
+**API Read Access Token (v4 auth)**
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2OGIxMzc3MDE5NGE3M2ZmMjE4ZWU2ZmFlMWYyYzQ4OCIsInN1YiI6IjViZWM3ODIyMGUwYTI2MzI5YzAwMTZkZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.8QIAzQl9W5ptVNXhGsPUM6IAGwb-WIcCy4DeK7BlTCI
+
+**Example API Request**
+
+https://api.themoviedb.org/3/movie/550?api_key=68b13770194a73ff218ee6fae1f2c488
 

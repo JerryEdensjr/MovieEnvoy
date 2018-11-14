@@ -62,6 +62,7 @@
 		63374B75219CCC2B008214F4 /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
 		63374B79219CCFC5008214F4 /* MovieInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoTableViewCell.swift; sourceTree = "<group>"; };
 		63374B7A219CCFC5008214F4 /* MovieInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieInfoTableViewCell.xib; sourceTree = "<group>"; };
+		63374B7D219CDAAB008214F4 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		63FF9D38219CBA9B00C3ADF6 /* MovieEnvoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieEnvoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FF9D44219CBA9C00C3ADF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63FF9D47219CBA9C00C3ADF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -144,6 +145,7 @@
 		63FF9D2F219CBA9B00C3ADF6 = {
 			isa = PBXGroup;
 			children = (
+				63374B7D219CDAAB008214F4 /* README.md */,
 				63FF9D3A219CBA9B00C3ADF6 /* MovieEnvoy */,
 				63FF9D51219CBA9D00C3ADF6 /* MovieEnvoyTests */,
 				63FF9D5C219CBA9D00C3ADF6 /* MovieEnvoyUITests */,
