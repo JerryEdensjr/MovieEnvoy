@@ -89,6 +89,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63374B60219CCA3F008214F4 /* topRated */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = topRated;
+			sourceTree = "<group>";
+		};
 		63FF9D2F219CBA9B00C3ADF6 = {
 			isa = PBXGroup;
 			children = (
@@ -164,7 +171,7 @@
 				63FF9D72219CBBBB00C3ADF6 /* comingsoon */,
 				63FF9D70219CBBBB00C3ADF6 /* nowPlaying */,
 				63FF9D71219CBBBB00C3ADF6 /* popular */,
-				63FF9D73219CBBBB00C3ADF6 /* topRated */,
+				63374B60219CCA3F008214F4 /* topRated */,
 			);
 			path = flow;
 			sourceTree = "<group>";
@@ -188,13 +195,6 @@
 			children = (
 			);
 			path = comingsoon;
-			sourceTree = "<group>";
-		};
-		63FF9D73219CBBBB00C3ADF6 /* topRated */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = topRated;
 			sourceTree = "<group>";
 		};
 		63FF9D74219CBBBB00C3ADF6 /* app */ = {
@@ -232,7 +232,6 @@
 				DA77E42AE1EF79FF75835DAC /* Pods-MovieEnvoyUITests.debug.xcconfig */,
 				E61EE013DE6766469310797C /* Pods-MovieEnvoyUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
