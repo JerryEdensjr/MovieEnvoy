@@ -13,6 +13,7 @@ class PopularViewController: MovieEnvoyViewController {
   // MARK: propeties
 
   // MARK: outlets
+  @IBOutlet weak var titlebar: UIView!
 
   // MARK: overrides
   override func awakeFromNib() {
@@ -20,7 +21,11 @@ class PopularViewController: MovieEnvoyViewController {
     self.endpoint = Endpoint.popular
   }
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.view.bringSubviewToFront(self.titlebar)
+    self.tableview.contentInset = UIEdgeInsets(top: self.titlebar.frame.maxY, left: 0.0, bottom: 0.0, right: 0.0)
+    self.tableview.setNeedsLayout()
+    self.tableview.layoutIfNeeded()
   }
 }
