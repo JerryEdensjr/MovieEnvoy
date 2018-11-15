@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0AD-tr-R4k">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Now Playing-->
+        <scene sceneID="F1A-xT-2WK">
+            <objects>
+                <viewController storyboardIdentifier="NowPlayingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0AD-tr-R4k" customClass="NowPlayingViewController" customModule="MovieEnvoy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OuE-pO-rzt" userLabel="root">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fM2-8V-9Ky" userLabel="title bar">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXM-cy-7Kf">
+                                        <rect key="frame" x="126.5" y="32" width="122.5" height="26"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.86852134146341464" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="66" id="BM8-c1-ORL"/>
+                                    <constraint firstAttribute="bottom" secondItem="qXM-cy-7Kf" secondAttribute="bottom" constant="8" id="cIh-gc-Gdo"/>
+                                    <constraint firstItem="qXM-cy-7Kf" firstAttribute="centerX" secondItem="fM2-8V-9Ky" secondAttribute="centerX" id="fPD-F5-cQo"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fM2-8V-9Ky" secondAttribute="trailing" id="5yL-He-qJi"/>
+                            <constraint firstItem="fM2-8V-9Ky" firstAttribute="leading" secondItem="OuE-pO-rzt" secondAttribute="leading" id="tg5-Rv-eiw"/>
+                            <constraint firstItem="fM2-8V-9Ky" firstAttribute="top" secondItem="OuE-pO-rzt" secondAttribute="top" id="y7S-KP-8tK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="tcb-LR-4AR"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="nowPlaying" landscapeImage="nowPlaying" id="cWX-qM-VPb"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="titlebar" destination="fM2-8V-9Ky" id="yYM-fO-8qI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iRW-rC-OVg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852" y="-305.39730134932535"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="nowPlaying" width="51.200000762939453" height="51.200000762939453"/>
+    </resources>
+</document>
