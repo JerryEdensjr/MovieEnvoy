@@ -8,7 +8,17 @@
 
 import UIKit
 
-class ComingSoonViewController: UIViewController {
+class ComingSoonViewController: MovieEnvoyViewController {
+
+  // MARK: propeties
+
+  // MARK: outlets
+
+  // MARK: overrides
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    self.endpoint = Endpoint.upcoming
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()

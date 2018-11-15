@@ -8,8 +8,18 @@
 
 import UIKit
 
-class NowPlayingViewController: UIViewController {
+class NowPlayingViewController: MovieEnvoyViewController {
 
+  // MARK: propeties
+
+  // MARK: outlets
+  
+  // MARK: overrides
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    self.endpoint = Endpoint.nowPlaying
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }

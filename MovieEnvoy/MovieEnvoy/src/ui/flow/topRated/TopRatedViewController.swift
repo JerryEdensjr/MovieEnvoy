@@ -8,7 +8,17 @@
 
 import UIKit
 
-class TopRatedViewController: UIViewController {
+class TopRatedViewController: MovieEnvoyViewController {
+
+  // MARK: propeties
+
+  // MARK: outlets
+
+  // MARK: overrides
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    self.endpoint = Endpoint.topRated
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()

@@ -8,8 +8,18 @@
 
 import UIKit
 
-class PopularViewController: UIViewController {
+class PopularViewController: MovieEnvoyViewController {
 
+  // MARK: propeties
+
+  // MARK: outlets
+
+  // MARK: overrides
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    self.endpoint = Endpoint.popular
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
