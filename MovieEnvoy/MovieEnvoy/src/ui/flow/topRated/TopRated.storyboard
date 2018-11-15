@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gIP-ND-s2V">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Top Rated-->
+        <scene sceneID="W7X-bm-2u7">
+            <objects>
+                <viewController storyboardIdentifier="TopRatedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gIP-ND-s2V" customClass="TopRatedViewController" customModule="MovieEnvoy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gXJ-1d-odM" userLabel="root">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6P-xA-w7v" userLabel="title bar">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibY-o1-ef0">
+                                        <rect key="frame" x="100.5" y="32" width="174" height="26"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.86852134150000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ibY-o1-ef0" secondAttribute="bottom" constant="8" id="5vu-0r-2EI"/>
+                                    <constraint firstAttribute="height" constant="66" id="Ba7-LS-GGH"/>
+                                    <constraint firstItem="ibY-o1-ef0" firstAttribute="centerX" secondItem="o6P-xA-w7v" secondAttribute="centerX" id="LJl-fA-tX0"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="jJu-vx-2yB"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="o6P-xA-w7v" secondAttribute="trailing" id="D0d-4a-x52"/>
+                            <constraint firstItem="o6P-xA-w7v" firstAttribute="leading" secondItem="gXJ-1d-odM" secondAttribute="leading" id="lkV-O0-o52"/>
+                            <constraint firstItem="o6P-xA-w7v" firstAttribute="top" secondItem="gXJ-1d-odM" secondAttribute="top" id="rNK-cu-gEd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="l9E-9w-Dqg"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Top Rated" image="topRated" landscapeImage="topRated" id="l8j-h1-MtZ">
+                        <color key="badgeColor" name="tabbarTint"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="titlebar" destination="o6P-xA-w7v" id="WIa-R4-nhN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lVo-ZO-7Xq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="210" y="54"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="topRated" width="51.200000762939453" height="51.200000762939453"/>
+        <namedColor name="tabbarTint">
+            <color red="0.039215686274509803" green="0.45490196078431372" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
