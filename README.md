@@ -9,7 +9,7 @@ This iOS app is being written for Couture Lane as part of their interview proces
 The requirement is to target 11.0.  Apple recommends targeting the last version of the previous iOS version.  So, we should target 11.4 so that we get all the bug fixes from the prevous iOS release.
 
 ### Time Limit
-Time: 24 hrs. - Started 11:55 pm PT
+Time: 24 hrs. - Started 11:55 pm PT - completed 10:00 pm PT
 
 ### Todo's if there is time
 1.  Put API key into xcconfig
