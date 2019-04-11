@@ -30,6 +30,7 @@
 		6374F305225F789C006987E5 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374F304225F789C006987E5 /* APIService.swift */; };
 		6374F307225F78EC006987E5 /* APIServiceContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374F306225F78EC006987E5 /* APIServiceContext.swift */; };
 		6374F309225F7C24006987E5 /* Stdlib+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374F308225F7C24006987E5 /* Stdlib+Extension.swift */; };
+		6374F30B225F7EF9006987E5 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374F30A225F7EF9006987E5 /* MovieService.swift */; };
 		63FF9D45219CBA9C00C3ADF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63FF9D44219CBA9C00C3ADF6 /* Assets.xcassets */; };
 		63FF9D48219CBA9C00C3ADF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63FF9D46219CBA9C00C3ADF6 /* LaunchScreen.storyboard */; };
 		63FF9D53219CBA9D00C3ADF6 /* MovieEnvoyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF9D52219CBA9D00C3ADF6 /* MovieEnvoyTests.swift */; };
@@ -85,6 +86,7 @@
 		6374F304225F789C006987E5 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		6374F306225F78EC006987E5 /* APIServiceContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceContext.swift; sourceTree = "<group>"; };
 		6374F308225F7C24006987E5 /* Stdlib+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stdlib+Extension.swift"; sourceTree = "<group>"; };
+		6374F30A225F7EF9006987E5 /* MovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		63FF9D38219CBA9B00C3ADF6 /* MovieEnvoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieEnvoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63FF9D44219CBA9C00C3ADF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63FF9D47219CBA9C00C3ADF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		6374F2FC225F7649006987E5 /* protocols */ = {
 			isa = PBXGroup;
 			children = (
+				6374F30A225F7EF9006987E5 /* MovieService.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -660,6 +663,7 @@
 				63374B83219CE511008214F4 /* MovieDBDatasource.swift in Sources */,
 				63374B85219CE58E008214F4 /* Endpoint.swift in Sources */,
 				63374B68219CCB7A008214F4 /* NowPlayingViewController.swift in Sources */,
+				6374F30B225F7EF9006987E5 /* MovieService.swift in Sources */,
 				63374B8A219CFFA7008214F4 /* Movie.swift in Sources */,
 				6374F309225F7C24006987E5 /* Stdlib+Extension.swift in Sources */,
 				6374F301225F76AD006987E5 /* APIEndpoint.swift in Sources */,
@@ -776,13 +780,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -831,12 +836,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -855,7 +861,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iphonedevhouse.MovieEnvoy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -874,7 +880,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iphonedevhouse.MovieEnvoy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
