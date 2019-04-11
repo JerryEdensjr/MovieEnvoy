@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,13 +19,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="433" height="80.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nowPlaying" translatesAutoresizingMaskIntoConstraints="NO" id="vL0-5c-UgC">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H0z-eS-H8C" userLabel="image shadow view">
                         <rect key="frame" x="8" y="8" width="60" height="60"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nowPlaying" translatesAutoresizingMaskIntoConstraints="NO" id="vL0-5c-UgC">
+                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="60" id="GX1-pV-kAa"/>
-                            <constraint firstAttribute="height" constant="60" id="ZuO-Qf-FEK"/>
+                            <constraint firstAttribute="trailing" secondItem="vL0-5c-UgC" secondAttribute="trailing" id="NTp-51-Syn"/>
+                            <constraint firstItem="vL0-5c-UgC" firstAttribute="top" secondItem="H0z-eS-H8C" secondAttribute="top" id="Wp8-Qu-1bH"/>
+                            <constraint firstItem="vL0-5c-UgC" firstAttribute="leading" secondItem="H0z-eS-H8C" secondAttribute="leading" id="dRM-Ns-bSm"/>
+                            <constraint firstAttribute="width" constant="60" id="fdM-vg-Gio"/>
+                            <constraint firstAttribute="bottom" secondItem="vL0-5c-UgC" secondAttribute="bottom" id="fwo-4g-sCq"/>
+                            <constraint firstAttribute="width" secondItem="H0z-eS-H8C" secondAttribute="height" multiplier="1:1" id="xxV-yv-qbv"/>
                         </constraints>
-                    </imageView>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zZq-Oe-fSq">
                         <rect key="frame" x="76" y="11" width="34.5" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
@@ -40,19 +50,20 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="vL0-5c-UgC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="4ic-cG-jf0"/>
+                    <constraint firstItem="H0z-eS-H8C" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="48Q-Ru-lkG"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ayy-DW-OY1" secondAttribute="trailing" constant="20" symbolic="YES" id="7zt-ar-RA0"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="zZq-Oe-fSq" secondAttribute="trailing" constant="20" symbolic="YES" id="A3a-34-jOc"/>
                     <constraint firstItem="zZq-Oe-fSq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="C5y-li-5PK"/>
+                    <constraint firstItem="H0z-eS-H8C" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="KtP-hn-qfZ"/>
                     <constraint firstAttribute="bottom" secondItem="ayy-DW-OY1" secondAttribute="bottom" constant="8" id="WoL-6B-6MG"/>
                     <constraint firstItem="ayy-DW-OY1" firstAttribute="leading" secondItem="zZq-Oe-fSq" secondAttribute="leading" id="d6e-cQ-vEo"/>
-                    <constraint firstItem="vL0-5c-UgC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="eTg-yb-ZDG"/>
-                    <constraint firstItem="zZq-Oe-fSq" firstAttribute="leading" secondItem="vL0-5c-UgC" secondAttribute="trailing" constant="8" id="xBz-UK-j4h"/>
+                    <constraint firstItem="zZq-Oe-fSq" firstAttribute="leading" secondItem="H0z-eS-H8C" secondAttribute="trailing" constant="8" id="xBz-UK-j4h"/>
                     <constraint firstItem="ayy-DW-OY1" firstAttribute="top" secondItem="zZq-Oe-fSq" secondAttribute="bottom" id="yNi-CR-7H4"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="imageShadowView" destination="H0z-eS-H8C" id="jI7-cD-txZ"/>
                 <outlet property="movieTitle" destination="zZq-Oe-fSq" id="K0Y-lk-1Hm"/>
                 <outlet property="overview" destination="ayy-DW-OY1" id="xjW-yf-SnR"/>
                 <outlet property="posterImageView" destination="vL0-5c-UgC" id="z4h-B6-uVr"/>
@@ -61,6 +72,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="nowPlaying" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="nowPlaying" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
 </document>

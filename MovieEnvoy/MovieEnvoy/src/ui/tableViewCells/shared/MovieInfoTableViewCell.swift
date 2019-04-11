@@ -15,12 +15,15 @@ class MovieInfoTableViewCell: UITableViewCell {
 
   // MARK: outlets
   @IBOutlet weak var posterImageView: UIImageView!
+  @IBOutlet weak var imageShadowView: UIView!
   @IBOutlet weak var movieTitle: UILabel!
   @IBOutlet weak var overview: UILabel!
 
   // MARK: overrides
   override func awakeFromNib() {
     super.awakeFromNib()
+    imageShadowView.addShadow(opacity: 0.25)
+    posterImageView.roundCorners()
   }
 
   // MARK: tableviewcell support
