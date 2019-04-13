@@ -15,7 +15,7 @@ extension APIService: MovieService {
   func getMoviesNowPlaying(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
     let request = Alamofire.request(MovieRouter.getMoviesNowPlaying)
 
-    request.responseData(queue: movieQueue){ responseData in
+    request.responseData(queue: movieQueue) { responseData in
       do {
         let data = responseData.data
         let response = try self.getResponse(from: data, responseType: GetMovieResponseModel.self)

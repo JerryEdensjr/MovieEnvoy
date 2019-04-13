@@ -53,11 +53,13 @@ public class APIService {
       throw APIError.decodeError
     }
   }
+
 }
 
 // MARK: APIService State
 extension APIService {
   var deviceID: String? { return UIDevice.current.identifierForVendor?.uuidString }
+
 }
 
 public enum APIServiceResult<T> {
@@ -91,5 +93,5 @@ extension DataRequest {
       }
     }
   }
-}
 
+}

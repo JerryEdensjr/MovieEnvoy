@@ -22,9 +22,7 @@ class MovieDBDatasource: NSObject {
   }
 
   var movies: [Movie] {
-    get {
-      return self._movies
-    }
+    return self._movies
   }
 
   // MARK: utilities

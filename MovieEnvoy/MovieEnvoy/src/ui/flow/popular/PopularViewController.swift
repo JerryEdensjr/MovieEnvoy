@@ -20,7 +20,7 @@ class PopularViewController: MovieEnvoyViewController {
     super.awakeFromNib()
     self.endpoint = Endpoint.popular
   }
-  
+
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.view.bringSubviewToFront(self.titlebar)

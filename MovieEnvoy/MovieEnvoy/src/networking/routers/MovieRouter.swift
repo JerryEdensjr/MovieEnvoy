@@ -15,16 +15,16 @@ enum MovieRouter: EndpointRouter {
   var components: RequestComponents {
     switch self {
     case .getMoviesNowPlaying:
-      return (.get, APIEndpoint.nowPlaying.endpoint, nil)
+      return (.get, APIEndpoint.nowPlaying.endpoint, nil, apiVersion: .v1)
 
     case .getPopularMovies:
-      return (.get, APIEndpoint.popular.endpoint, nil)
+      return (.get, APIEndpoint.popular.endpoint, nil, apiVersion: .v1)
 
     case .getTopRatedMovies:
-      return (.get, APIEndpoint.topRated.endpoint, nil)
+      return (.get, APIEndpoint.topRated.endpoint, nil, apiVersion: .v1)
 
     case .getUpcomingMovies:
-      return (.get, APIEndpoint.upcoming.endpoint, nil)
+      return (.get, APIEndpoint.upcoming.endpoint, nil, apiVersion: .v1)
     }
   }
 

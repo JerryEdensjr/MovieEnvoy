@@ -446,6 +446,7 @@
 				63FF9D35219CBA9B00C3ADF6 /* Frameworks */,
 				63FF9D36219CBA9B00C3ADF6 /* Resources */,
 				2FE2E07A196CB7886F253E59 /* [CP] Embed Pods Frameworks */,
+				63B9A32D226236B0000C3584 /* SwiftLine */,
 			);
 			buildRules = (
 			);
@@ -509,10 +510,12 @@
 					};
 					63FF9D4D219CBA9D00C3ADF6 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 63FF9D37219CBA9B00C3ADF6;
 					};
 					63FF9D58219CBA9D00C3ADF6 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1020;
 						TestTargetID = 63FF9D37219CBA9B00C3ADF6;
 					};
 				};
@@ -617,6 +620,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MovieEnvoy/Pods-MovieEnvoy-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		63B9A32D226236B0000C3584 /* SwiftLine */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLine;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then \n    swiftlint\nelse \n    echo \"warning: SwiftLint is not installed.  brew install swiftlint\"\nfi\n";
 		};
 		9EE90BFB4CF48596FEFEE9D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -10,7 +10,7 @@ import Foundation
 
 class Movie: Codable {
 
-  let title:String!
+  let title: String!
   let overview: String!
   let posterPath: String!
 

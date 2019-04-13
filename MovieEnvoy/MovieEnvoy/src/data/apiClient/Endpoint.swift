@@ -40,13 +40,13 @@ extension Endpoint {
 
     switch self {
     case .nowPlaying:
-      url = url + "/3/movie/now_playing"
+      url += "/3/movie/now_playing"
     case .popular:
-      url = url + "/3/movie/popular"
+      url += "/3/movie/popular"
     case .topRated:
-      url = url + "/3/movie/top_rated"
+      url += "/3/movie/top_rated"
     case .upcoming:
-      url = url + "/3/movie/upcoming"
+      url += "/3/movie/upcoming"
     case .image:
       url = self.imageBaseUrl
       return url

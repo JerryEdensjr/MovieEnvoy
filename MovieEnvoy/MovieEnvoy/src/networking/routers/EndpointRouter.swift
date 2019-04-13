@@ -9,7 +9,7 @@
 import Alamofire
 
 protocol EndpointRouter: URLRequestConvertible {
-  typealias RequestComponents = (method: HTTPMethod, path: String, params: Parameters?)
+  typealias RequestComponents = (method: HTTPMethod, path: String, params: Parameters?, apiVersion: APIVersion)
   var components: RequestComponents { get }
 }
 

@@ -30,7 +30,7 @@ class APIClient {
   func request(_ endpoint: Endpoint, _ page: Int = 1, completion: @escaping (([Movie]?) -> Void)) {
 
     let url = URL(string: endpoint.path + "&page=\(page)")
-    let headers = [String:String]()
+    let headers = [String: String]()
 
     Alamofire.request(url!, method: endpoint.method, parameters: nil, encoding: JSONEncoding.default, headers: headers)
       .validate()
@@ -40,8 +40,8 @@ class APIClient {
           completion(nil)
         } else {
 
-          if let result = response.result.value as? [String: Any] {
-            let results = result["results"] as! NSArray
+          if let result = response.result.value as? [String: Any],
+            let results = result["results"] as? NSArray {
 
             var movies = [Movie]()
             let decoder = JSONDecoder()

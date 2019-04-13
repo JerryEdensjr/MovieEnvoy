@@ -36,7 +36,7 @@ class MovieEnvoyViewController: UIViewController {
   // MARK: overrides
   override func viewDidLoad() {
     super.viewDidLoad()
-    datasource.refreshMovieList(with: endpoint) { (movies) in
+    datasource.refreshMovieList(with: endpoint) { (_) in
       DispatchQueue.main.async {
         self.tableview.reloadData()
       }
