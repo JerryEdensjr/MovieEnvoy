@@ -12,7 +12,7 @@ import PromiseKit
 private let queue = DispatchQueue(label: "APIServiceQueue", qos: .userInitiated, attributes: .concurrent)
 
 public class APIService {
-  static var environment: APIServiceContext!
+  static var context: APIServiceContext!
   static let shared = APIService()
 
   private enum Defaults {
@@ -26,7 +26,7 @@ public class APIService {
   }
 
   private init(environment: APIServiceContext = Defaults.environment) {
-    APIService.environment = environment
+    APIService.context = environment
   }
 
   var shouldReloadExplore: Bool = true
