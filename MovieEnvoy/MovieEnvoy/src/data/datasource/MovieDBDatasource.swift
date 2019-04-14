@@ -26,48 +26,37 @@ class MovieDBDatasource: NSObject {
   }
 
   // MARK: utilities
-  func refreshMovieList(with endpoint: APIEndpoint, completion: @escaping (([Movie]) -> Void)) {
+  func refreshMovieList(with endpoint: APIEndpoint, completion: @escaping (() -> Void)) {
+    func handleResult(result: APIServiceResult<[Movie]>) {
+      switch result {
+      case let .success(movies):
+        self._movies = movies
+        completion()
+      case let .failure(error):
+        print(items: error.localizedDescription)
+        completion()
+      }
+    }
+
     switch endpoint {
     case .nowPlaying:
       APIService.shared.getMoviesNowPlaying { (result) in
-        switch result {
-        case let .success(movies):
-            completion(movies)
-        case let .failure(error):
-          print(items: error.localizedDescription)
-          completion([Movie]())
-        }
+        handleResult(result: result)
       }
 
     case .popular:
       APIService.shared.getPopularMovies { (result) in
-        switch result {
-        case let .success(movies):
-          completion(movies)
-        case let .failure(error):
-          print(items: error.localizedDescription)
-          completion([Movie]())
-        }
+        handleResult(result: result)
       }
+
     case .topRated:
       APIService.shared.getTopRatedMovies { (result) in
-        switch result {
-        case let .success(movies):
-          completion(movies)
-        case let .failure(error):
-          print(items: error.localizedDescription)
-          completion([Movie]())
-        }
+        handleResult(result: result)
       }
+
     case .upcoming:
       APIService.shared.getUpcomingMovies { (result) in
-        switch result {
-        case let .success(movies):
-          completion(movies)
-        case let .failure(error):
-          print(items: error.localizedDescription)
-          completion([Movie]())
-        }
+        handleResult(result: result)
       }
     }
   }
