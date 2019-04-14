@@ -44,7 +44,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tcb-LR-4AR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Now Playing" image="nowPlaying" landscapeImage="nowPlaying" selectedImage="nowPlaying" id="cWX-qM-VPb"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="nowPlaying" landscapeImage="nowPlaying" id="cWX-qM-VPb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="titlebar" destination="fM2-8V-9Ky" id="yYM-fO-8qI"/>

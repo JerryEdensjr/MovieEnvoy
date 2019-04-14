@@ -45,7 +45,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9KI-eY-d0j"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Upcoming" image="upcoming" landscapeImage="upcoming" selectedImage="upcoming" id="ZNt-H4-rJb"/>
+                    <tabBarItem key="tabBarItem" title="Upcoming" image="upcoming" landscapeImage="upcoming" id="ZNt-H4-rJb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="titlebar" destination="KLJ-X6-4Lg" id="dZw-q8-WCA"/>

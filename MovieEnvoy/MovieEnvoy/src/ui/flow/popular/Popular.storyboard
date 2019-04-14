@@ -44,7 +44,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wDx-ND-VEf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Popular" image="popular" landscapeImage="popular" selectedImage="popular" id="nNd-Gk-U3L"/>
+                    <tabBarItem key="tabBarItem" title="Popular" image="popular" landscapeImage="popular" id="nNd-Gk-U3L"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="titlebar" destination="3MV-Bl-r0v" id="W8l-ZI-x4L"/>

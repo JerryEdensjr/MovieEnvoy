@@ -28,4 +28,5 @@ class TopRatedViewController: MovieEnvoyViewController {
     self.tableview.setNeedsLayout()
     self.tableview.layoutIfNeeded()
   }
+
 }
