@@ -71,9 +71,7 @@ extension MovieDBDatasource: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCell(withIdentifier: MovieInfoTableViewCell.cellIdentifier()) as? MovieInfoTableViewCell {
       let movie = self.movies[indexPath.row]
-      cell.movieTitle.text = movie.title
-      cell.overview.text = movie.overview
-      cell.posterImageView.af_setImage(withURL: URL(string: APIService.context.imageBaseURLString + movie.posterPath)!)
+      cell.configure(with: movie)
       return cell
     }
 
