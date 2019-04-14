@@ -18,6 +18,7 @@ class MovieInfoTableViewCell: UITableViewCell {
   @IBOutlet private var imageShadowView: UIView!
   @IBOutlet private var movieTitle: UILabel!
   @IBOutlet private var overview: UILabel!
+  @IBOutlet private var releaseDate: UILabel!
 
   // MARK: overrides
   override func awakeFromNib() {
@@ -28,6 +29,7 @@ class MovieInfoTableViewCell: UITableViewCell {
 
   func configure(with movie: Movie) {
     movieTitle.text = movie.title
+    releaseDate.text = movie.releaseDate
 
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.lineSpacing = 4
