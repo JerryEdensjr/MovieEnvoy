@@ -18,7 +18,7 @@ class NowPlayingViewController: MovieEnvoyViewController {
   // MARK: overrides
   override func awakeFromNib() {
     super.awakeFromNib()
-    self.endpoint = Endpoint.nowPlaying
+    self.endpoint = APIEndpoint.nowPlaying
   }
 
   override func viewWillAppear(_ animated: Bool) {

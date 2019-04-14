@@ -18,7 +18,7 @@ class TopRatedViewController: MovieEnvoyViewController {
   // MARK: overrides
   override func awakeFromNib() {
     super.awakeFromNib()
-    self.endpoint = Endpoint.topRated
+    self.endpoint = APIEndpoint.topRated
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -28,4 +28,5 @@ class TopRatedViewController: MovieEnvoyViewController {
     self.tableview.setNeedsLayout()
     self.tableview.layoutIfNeeded()
   }
+
 }

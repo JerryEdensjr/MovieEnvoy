@@ -1,0 +1,17 @@
+//
+//  production.xcconfig
+//  MovieEnvoy
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+EMPTY_STRING =;
+ENVIRONMENT_NAME = "Prod"
+ENVIRONMENT_PREPROCESSOR = Prod=1;
+BUNDLE_IDENTIFIER = com.iphonedevhouse.$(PRODUCT_NAME:rfc1034identifier);
+TMDB_SERVER_URL = "https:/$()/api.themoviedb.org"
+TMDB_IMAGE_URL = "https:/$()/image.tmdb.org/t/p/w154"
+API_VERSION = "1.0"
+
+#include "generator.xcconfig"

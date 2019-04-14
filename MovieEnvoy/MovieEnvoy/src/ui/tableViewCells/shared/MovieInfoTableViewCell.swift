@@ -14,17 +14,32 @@ class MovieInfoTableViewCell: UITableViewCell {
   fileprivate static var baseHeight: CGFloat = 80.5
 
   // MARK: outlets
-  @IBOutlet weak var posterImageView: UIImageView!
-  @IBOutlet weak var movieTitle: UILabel!
-  @IBOutlet weak var overview: UILabel!
+  @IBOutlet private var posterImageView: UIImageView!
+  @IBOutlet private var imageShadowView: UIView!
+  @IBOutlet private var movieTitle: UILabel!
+  @IBOutlet private var overview: UILabel!
 
   // MARK: overrides
   override func awakeFromNib() {
     super.awakeFromNib()
+    imageShadowView.addShadow(opacity: 0.25)
+    posterImageView.roundCorners()
+  }
+
+  func configure(with movie: Movie) {
+    movieTitle.text = movie.title
+
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.lineSpacing = 4
+    paragraphStyle.alignment = .left
+    overview.attributedText = NSAttributedString(string: movie.overview, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+
+    posterImageView.af_setImage(withURL: URL(string: APIService.context.imageBaseURLString + movie.posterPath)!)
   }
 
   // MARK: tableviewcell support
   static func cellIdentifier() -> String {
     return String(describing: MovieInfoTableViewCell.self)
   }
+
 }

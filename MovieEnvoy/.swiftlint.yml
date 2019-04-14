@@ -1,0 +1,36 @@
+disabled_rules:  # rules you want to exclude
+#warnings (We should have a minimum number of excluded warnings in this list)
+  - block_based_kvo
+  - cyclomatic_complexity
+  - file_length
+  - function_body_length
+  - function_parameter_count
+  - large_tuple
+  - line_length
+  - type_body_length
+  - identifier_name
+
+# errors (We should make sure we have no excluded errors in this list)
+
+excluded: # paths to exclude
+  - Pods
+
+analyzer_rules:
+  - unused_import
+  - unused_private_declaration
+
+# customized rules
+
+file_name:
+  excluded:
+  - main.swift
+
+identifier_name:
+  min_length: 1
+  max_length: 60
+  excluded:
+  - id
+
+type_name:
+  allowed_symbols: _
+  max_length: 60

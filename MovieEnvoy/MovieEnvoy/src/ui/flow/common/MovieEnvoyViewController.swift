@@ -13,7 +13,7 @@ class MovieEnvoyViewController: UIViewController {
   // MARK: propeties
   fileprivate let datasource = MovieDBDatasource.sharedInstance
   internal let tableview = UITableView()
-  internal var endpoint: Endpoint!
+  internal var endpoint: APIEndpoint!
 
   // MARK: outlets
 
@@ -36,7 +36,7 @@ class MovieEnvoyViewController: UIViewController {
   // MARK: overrides
   override func viewDidLoad() {
     super.viewDidLoad()
-    datasource.refreshMovieList(with: endpoint) { (movies) in
+    datasource.refreshMovieList(with: endpoint) {
       DispatchQueue.main.async {
         self.tableview.reloadData()
       }

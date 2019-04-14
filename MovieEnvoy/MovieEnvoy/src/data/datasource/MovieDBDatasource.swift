@@ -22,24 +22,45 @@ class MovieDBDatasource: NSObject {
   }
 
   var movies: [Movie] {
-    get {
-      return self._movies
-    }
+    return self._movies
   }
 
   // MARK: utilities
-  func refreshMovieList(with endpoint: Endpoint, completion: @escaping (([Movie]?) -> Void)) {
-    let apiClient = APIClient.sharedInstance
-    apiClient.request(endpoint) { (movies) in
-      if let movies = movies {
+  func refreshMovieList(with endpoint: APIEndpoint, completion: @escaping (() -> Void)) {
+    func handleResult(result: APIServiceResult<[Movie]>) {
+      switch result {
+      case let .success(movies):
         self._movies = movies
-        completion(self._movies)
+        completion()
+      case let .failure(error):
+        print(items: error.localizedDescription)
+        completion()
+      }
+    }
 
-      } else {
-        completion(nil)
+    switch endpoint {
+    case .nowPlaying:
+      APIService.shared.getMoviesNowPlaying { (result) in
+        handleResult(result: result)
+      }
+
+    case .popular:
+      APIService.shared.getPopularMovies { (result) in
+        handleResult(result: result)
+      }
+
+    case .topRated:
+      APIService.shared.getTopRatedMovies { (result) in
+        handleResult(result: result)
+      }
+
+    case .upcoming:
+      APIService.shared.getUpcomingMovies { (result) in
+        handleResult(result: result)
       }
     }
   }
+
 }
 
 extension MovieDBDatasource: UITableViewDataSource {
@@ -50,9 +71,7 @@ extension MovieDBDatasource: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCell(withIdentifier: MovieInfoTableViewCell.cellIdentifier()) as? MovieInfoTableViewCell {
       let movie = self.movies[indexPath.row]
-      cell.movieTitle.text = movie.title
-      cell.overview.text = movie.overview
-      cell.posterImageView.af_setImage(withURL: URL(string: Endpoint.image.path + movie.posterPath)!)
+      cell.configure(with: movie)
       return cell
     }
 
