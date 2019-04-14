@@ -6,10 +6,6 @@
 //  Copyright © 2019 Edens R&D. All rights reserved.
 //
 
-private let baseURL = "https://api.themoviedb.org"
-private let imageBaseUrl = "https://image.tmdb.org/t/p/w154"
-private let tmbAPIKey = "?api_key=68b13770194a73ff218ee6fae1f2c488"
-
 public enum APIServiceContext {
   case production, staging
 
@@ -18,27 +14,27 @@ public enum APIServiceContext {
   public var baseURLString: String {
     switch self {
     case .production:
-      return baseURL
+      return TMDB_BASE_URL
     case .staging:
-      return baseURL
+      return TMDB_BASE_URL
     }
   }
 
   public var imageBaseURLString: String {
     switch self {
     case .production:
-      return imageBaseUrl
+      return TMDB_IMAGE_URL
     case .staging:
-      return imageBaseUrl
+      return TMDB_IMAGE_URL
     }
   }
 
   public var theMovieDBAPIKey: String {
     switch self {
     case .production:
-      return tmbAPIKey
+      return TMDB_API_KEY
     case .staging:
-      return tmbAPIKey
+      return TMDB_API_KEY
     }
   }
 

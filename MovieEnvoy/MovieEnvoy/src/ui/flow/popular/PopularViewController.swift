@@ -18,7 +18,7 @@ class PopularViewController: MovieEnvoyViewController {
   // MARK: overrides
   override func awakeFromNib() {
     super.awakeFromNib()
-    self.endpoint = Endpoint.popular
+    self.endpoint = APIEndpoint.popular
   }
 
   override func viewWillAppear(_ animated: Bool) {

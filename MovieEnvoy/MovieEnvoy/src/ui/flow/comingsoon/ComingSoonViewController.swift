@@ -18,7 +18,7 @@ class ComingSoonViewController: MovieEnvoyViewController {
   // MARK: overrides
   override func awakeFromNib() {
     super.awakeFromNib()
-    self.endpoint = Endpoint.upcoming
+    self.endpoint = APIEndpoint.upcoming
   }
 
   override func viewWillAppear(_ animated: Bool) {

@@ -18,7 +18,7 @@ class TopRatedViewController: MovieEnvoyViewController {
   // MARK: overrides
   override func awakeFromNib() {
     super.awakeFromNib()
-    self.endpoint = Endpoint.topRated
+    self.endpoint = APIEndpoint.topRated
   }
 
   override func viewWillAppear(_ animated: Bool) {

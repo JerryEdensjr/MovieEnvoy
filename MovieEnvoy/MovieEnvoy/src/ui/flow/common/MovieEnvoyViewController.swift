@@ -13,7 +13,7 @@ class MovieEnvoyViewController: UIViewController {
   // MARK: propeties
   fileprivate let datasource = MovieDBDatasource.sharedInstance
   internal let tableview = UITableView()
-  internal var endpoint: Endpoint!
+  internal var endpoint: APIEndpoint!
 
   // MARK: outlets
 

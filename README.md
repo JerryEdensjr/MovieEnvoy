@@ -27,7 +27,7 @@ This app will be written using 5.0.
 	*  posterPath of the movie
 1.  Load the posterPath image asynchronously
 1.  Language: Swift
-1.  Minimum supported iOS version: 11.0
+1.  Minimum supported iOS version: 12.2
 1.  Orientation support: Portrait and Landscape
 1.  Device support: iPhone and iPad
 1.  Manage dependencies with CocoaPods

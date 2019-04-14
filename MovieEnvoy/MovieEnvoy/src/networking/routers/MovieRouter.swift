@@ -15,16 +15,32 @@ enum MovieRouter: EndpointRouter {
   var components: RequestComponents {
     switch self {
     case .getMoviesNowPlaying:
-      return (.get, APIEndpoint.nowPlaying.endpoint, nil, apiVersion: .v1)
+      let params: [String: Any] = [
+        "api_key": TMDB_API_KEY
+      ]
+
+      return (.get, APIEndpoint.nowPlaying.endpoint, params, apiVersion: .v1)
 
     case .getPopularMovies:
-      return (.get, APIEndpoint.popular.endpoint, nil, apiVersion: .v1)
+      let params: [String: Any] = [
+        "api_key": TMDB_API_KEY
+      ]
+
+      return (.get, APIEndpoint.popular.endpoint, params, apiVersion: .v1)
 
     case .getTopRatedMovies:
-      return (.get, APIEndpoint.topRated.endpoint, nil, apiVersion: .v1)
+      let params: [String: Any] = [
+        "api_key": TMDB_API_KEY
+      ]
+
+      return (.get, APIEndpoint.topRated.endpoint, params, apiVersion: .v1)
 
     case .getUpcomingMovies:
-      return (.get, APIEndpoint.upcoming.endpoint, nil, apiVersion: .v1)
+      let params: [String: Any] = [
+        "api_key": TMDB_API_KEY
+      ]
+
+      return (.get, APIEndpoint.upcoming.endpoint, params, apiVersion: .v1)
     }
   }
 

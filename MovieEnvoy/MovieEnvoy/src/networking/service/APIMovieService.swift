@@ -14,10 +14,31 @@ extension APIService: MovieService {
 
   func getMoviesNowPlaying(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
     let request = Alamofire.request(MovieRouter.getMoviesNowPlaying)
+    handleRequest(with: request, completion: completion)
+  }
 
-    request.responseData(queue: movieQueue) { responseData in
+  func getPopularMovies(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
+    let request = Alamofire.request(MovieRouter.getPopularMovies)
+    handleRequest(with: request, completion: completion)
+  }
+
+  func getTopRatedMovies(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
+    let request = Alamofire.request(MovieRouter.getTopRatedMovies)
+    handleRequest(with: request, completion: completion)
+  }
+
+  func getUpcomingMovies(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
+    let request = Alamofire.request(MovieRouter.getUpcomingMovies)
+    handleRequest(with: request, completion: completion)
+  }
+
+}
+
+private extension APIService {
+  private func handleRequest(with request: DataRequest, completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
+    request.responseData(queue: movieQueue) { requestResponse in
       do {
-        let data = responseData.data
+        let data = requestResponse.data
         let response = try self.getResponse(from: data, responseType: GetMovieResponseModel.self)
 
         DispatchQueue.main.async {
@@ -25,24 +46,13 @@ extension APIService: MovieService {
         }
 
       } catch {
+
         print(items: error.localizedDescription)
         DispatchQueue.main.async {
           completion(.failure(error))
         }
       }
     }
-  }
-
-  func getPopularMovies(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
-
-  }
-
-  func getTopRatedMovies(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
-
-  }
-
-  func getUpcomingMovies(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
-
   }
 
 }

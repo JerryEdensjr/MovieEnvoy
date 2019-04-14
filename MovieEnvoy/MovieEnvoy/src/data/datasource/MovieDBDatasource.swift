@@ -26,18 +26,52 @@ class MovieDBDatasource: NSObject {
   }
 
   // MARK: utilities
-  func refreshMovieList(with endpoint: Endpoint, completion: @escaping (([Movie]?) -> Void)) {
-    let apiClient = APIClient.sharedInstance
-    apiClient.request(endpoint) { (movies) in
-      if let movies = movies {
-        self._movies = movies
-        completion(self._movies)
+  func refreshMovieList(with endpoint: APIEndpoint, completion: @escaping (([Movie]) -> Void)) {
+    switch endpoint {
+    case .nowPlaying:
+      APIService.shared.getMoviesNowPlaying { (result) in
+        switch result {
+        case let .success(movies):
+            completion(movies)
+        case let .failure(error):
+          print(items: error.localizedDescription)
+          completion([Movie]())
+        }
+      }
 
-      } else {
-        completion(nil)
+    case .popular:
+      APIService.shared.getPopularMovies { (result) in
+        switch result {
+        case let .success(movies):
+          completion(movies)
+        case let .failure(error):
+          print(items: error.localizedDescription)
+          completion([Movie]())
+        }
+      }
+    case .topRated:
+      APIService.shared.getTopRatedMovies { (result) in
+        switch result {
+        case let .success(movies):
+          completion(movies)
+        case let .failure(error):
+          print(items: error.localizedDescription)
+          completion([Movie]())
+        }
+      }
+    case .upcoming:
+      APIService.shared.getUpcomingMovies { (result) in
+        switch result {
+        case let .success(movies):
+          completion(movies)
+        case let .failure(error):
+          print(items: error.localizedDescription)
+          completion([Movie]())
+        }
       }
     }
   }
+
 }
 
 extension MovieDBDatasource: UITableViewDataSource {
@@ -50,7 +84,7 @@ extension MovieDBDatasource: UITableViewDataSource {
       let movie = self.movies[indexPath.row]
       cell.movieTitle.text = movie.title
       cell.overview.text = movie.overview
-      cell.posterImageView.af_setImage(withURL: URL(string: Endpoint.image.path + movie.posterPath)!)
+      cell.posterImageView.af_setImage(withURL: URL(string: APIService.context.imageBaseURLString + movie.posterPath)!)
       return cell
     }
 

@@ -21,17 +21,16 @@ enum Endpoint {
 /// This enum returns the full url path
 extension Endpoint {
 
-  // TODO: move the key value to an xcconfig
   var apiKey: String {
-    return "?api_key=68b13770194a73ff218ee6fae1f2c488"
+    return TMDB_API_KEY
   }
 
   var imageBaseUrl: String {
-    return "https://image.tmdb.org/t/p/w154"
+    return TMDB_IMAGE_URL
   }
 
   var baseURL: String {
-    return "https://api.themoviedb.org"
+    return TMDB_BASE_URL
   }
 
   /// The endpoint path for the type of endpoint
