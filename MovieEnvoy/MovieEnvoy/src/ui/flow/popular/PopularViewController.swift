@@ -23,9 +23,25 @@ class PopularViewController: MovieEnvoyViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.view.bringSubviewToFront(self.titlebar)
-    self.tableview.contentInset = UIEdgeInsets(top: self.titlebar.frame.maxY, left: 0.0, bottom: 0.0, right: 0.0)
-    self.tableview.setNeedsLayout()
-    self.tableview.layoutIfNeeded()
+
+    view.bringSubviewToFront(self.titlebar)
+    tableview.contentInset = UIEdgeInsets(top: self.titlebar.frame.maxY, left: 0.0, bottom: 0.0, right: 0.0)
+    tableview.setNeedsLayout()
+    tableview.layoutIfNeeded()
   }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    tableview.delegate = nil
+  }
+
+}
+
+extension PopularViewController {
+  override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.row - 10 <= viewModel.movies.count {
+      print(items: "Fetch New Data")
+    }
+  }
+
 }

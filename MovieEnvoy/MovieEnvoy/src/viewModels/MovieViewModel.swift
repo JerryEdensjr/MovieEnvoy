@@ -3,11 +3,11 @@
 //  MovieEnvoy
 //
 
-final class MovieViewModel {
+import UIKit
+
+final class MovieViewModel: NSObject {
 
   private(set) var movies = [Movie]()
-
-  private var mode: APIEndpoint = .nowPlaying
 
   private var currentPage: Int = 0
   private var totalPages: Int = 0
@@ -17,24 +17,48 @@ final class MovieViewModel {
     currentPage = responseModel.page
     totalPages = responseModel.totalPages
     totalResults = responseModel.totalResults
-    movies = responseModel.results
+    movies.append(contentsOf: responseModel.results)
   }
 
   private func configure(with response: (movies: [Movie], page: Int, totalPages: Int, totalResults: Int)) {
-    self.movies = response.movies
+    self.movies.append(contentsOf: response.movies)
     self.currentPage = response.page
     self.totalPages = response.totalPages
     self.totalResults = response.totalResults
   }
 
   private func configure(with movies: [Movie]) {
-    self.movies = movies
+    self.movies.append(contentsOf: movies)
   }
 
 }
 
 extension MovieViewModel {
-  func getMovies(with endpoint: APIEndpoint, completion: @escaping () -> Void) {
+  func getMoviesPlayingNow(completion: @escaping () -> Void) {
+    getMovies(with: .nowPlaying) {
+      completion()
+    }
+  }
+
+  func getPopularMovies(completion: @escaping () -> Void) {
+    getMovies(with: .popular) {
+      completion()
+    }
+  }
+
+  func getTopRatedMovies(completion: @escaping () -> Void) {
+    getMovies(with: .topRated) {
+      completion()
+    }
+  }
+
+  func getUpcomingMovies(completion: @escaping () -> Void) {
+    getMovies(with: .upcoming) {
+      completion()
+    }
+  }
+
+  private func getMovies(with endpoint: APIEndpoint, completion: @escaping () -> Void) {
 
     func handleResult(result: APIServiceResult<[Movie]>) {
       switch result {
@@ -48,15 +72,17 @@ extension MovieViewModel {
       }
     }
 
-    mode = endpoint
-
     switch endpoint {
     case .nowPlaying:
+      reset()
       APIService.shared.getMoviesNowPlaying { (result) in
         handleResult(result: result)
       }
 
     case .popular:
+      if currentPage == 0 {
+        movies = [Movie]()
+      }
       currentPage += 1
       APIService.shared.getPopularMovies(page: currentPage) { [weak self] (result, page, totalPages, totalResults) in
         guard let self = self else { return }
@@ -75,15 +101,38 @@ extension MovieViewModel {
       }
 
     case .topRated:
+      reset()
       APIService.shared.getTopRatedMovies { (result) in
         handleResult(result: result)
       }
 
     case .upcoming:
+      reset()
       APIService.shared.getUpcomingMovies { (result) in
         handleResult(result: result)
       }
     }
+  }
+
+  private func reset() {
+    movies = [Movie]()
+    currentPage = 0
+  }
+}
+
+extension MovieViewModel: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return movies.count
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    if let cell = tableView.dequeueReusableCell(withIdentifier: MovieInfoTableViewCell.cellIdentifier()) as? MovieInfoTableViewCell {
+      let movie = self.movies[indexPath.row]
+      cell.configure(with: movie)
+      return cell
+    }
+
+    return UITableViewCell()
   }
 
 }

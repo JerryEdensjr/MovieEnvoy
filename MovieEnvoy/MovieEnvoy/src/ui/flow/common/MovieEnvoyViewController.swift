@@ -11,34 +11,58 @@ import UIKit
 class MovieEnvoyViewController: UIViewController {
 
   // MARK: propeties
-  fileprivate let datasource = MovieDBDatasource.sharedInstance
+  //internal let datasource = MovieDBDatasource.sharedInstance
+  internal let viewModel = MovieViewModel()
   internal let tableview = UITableView()
-  internal var endpoint: APIEndpoint!
+  internal var endpoint: APIEndpoint = .nowPlaying
 
   // MARK: outlets
 
   // MARK: setup
-  fileprivate func setupTableview() {
-    self.tableview.translatesAutoresizingMaskIntoConstraints = false
-    self.view.addSubview(self.tableview)
-    self.tableview.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-    self.tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-    self.tableview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-    self.tableview.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-    self.tableview.rowHeight = UITableView.automaticDimension
-    self.tableview.estimatedRowHeight = 140.0
-    self.tableview.delegate = self
+  private func setupTableview() {
+    view.addSubview(self.tableview)
 
-    self.tableview.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: MovieInfoTableViewCell.cellIdentifier())
-    self.tableview.dataSource = self.datasource
+    tableview.translatesAutoresizingMaskIntoConstraints = false
+    tableview.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+    tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+    tableview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    tableview.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+    tableview.rowHeight = UITableView.automaticDimension
+    tableview.estimatedRowHeight = 140.0
+    tableview.showsVerticalScrollIndicator = false
+
+    tableview.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: MovieInfoTableViewCell.cellIdentifier())
+    tableview.dataSource = viewModel
+    tableview.delegate = self
   }
 
   // MARK: overrides
   override func viewDidLoad() {
     super.viewDidLoad()
-    datasource.refreshMovieList(with: endpoint) {
-      DispatchQueue.main.async {
-        self.tableview.reloadData()
+    switch endpoint {
+    case .nowPlaying:
+      viewModel.getMoviesPlayingNow {
+        DispatchQueue.main.async {
+          self.tableview.reloadData()
+        }
+      }
+    case .popular:
+      viewModel.getPopularMovies {
+        DispatchQueue.main.async {
+          self.tableview.reloadData()
+        }
+      }
+    case .topRated:
+      viewModel.getTopRatedMovies {
+        DispatchQueue.main.async {
+          self.tableview.reloadData()
+        }
+      }
+    case .upcoming:
+      viewModel.getUpcomingMovies {
+        DispatchQueue.main.async {
+          self.tableview.reloadData()
+        }
       }
     }
   }
@@ -47,7 +71,11 @@ class MovieEnvoyViewController: UIViewController {
     super.viewWillAppear(animated)
     setupTableview()
   }
+
 }
 
 extension MovieEnvoyViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+  }
+
 }
