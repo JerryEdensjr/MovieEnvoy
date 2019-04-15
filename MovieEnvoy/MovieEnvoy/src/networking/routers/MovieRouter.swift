@@ -8,7 +8,7 @@
 
 enum MovieRouter: EndpointRouter {
   case getMoviesNowPlaying
-  case getPopularMovies
+  case getPopularMovies(page: Int)
   case getTopRatedMovies
   case getUpcomingMovies
 
@@ -21,9 +21,10 @@ enum MovieRouter: EndpointRouter {
 
       return (.get, APIEndpoint.nowPlaying.endpoint, params, apiVersion: .v1)
 
-    case .getPopularMovies:
+    case let .getPopularMovies(page):
       let params: [String: Any] = [
-        "api_key": TMDB_API_KEY
+        "api_key": TMDB_API_KEY,
+        "page": page
       ]
 
       return (.get, APIEndpoint.popular.endpoint, params, apiVersion: .v1)

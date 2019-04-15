@@ -15,50 +15,19 @@ class MovieDBDatasource: NSObject {
   static let sharedInstance = MovieDBDatasource()
 
   // MARK: properties
-  fileprivate var _movies = [Movie]()
+  private var viewModel = MovieViewModel()
 
   // MARK: overrides
-  fileprivate override init() {
+  private override init() {
   }
 
   var movies: [Movie] {
-    return self._movies
+    return viewModel.movies
   }
 
   // MARK: utilities
   func refreshMovieList(with endpoint: APIEndpoint, completion: @escaping (() -> Void)) {
-    func handleResult(result: APIServiceResult<[Movie]>) {
-      switch result {
-      case let .success(movies):
-        self._movies = movies
-        completion()
-      case let .failure(error):
-        print(items: error.localizedDescription)
-        completion()
-      }
-    }
-
-    switch endpoint {
-    case .nowPlaying:
-      APIService.shared.getMoviesNowPlaying { (result) in
-        handleResult(result: result)
-      }
-
-    case .popular:
-      APIService.shared.getPopularMovies { (result) in
-        handleResult(result: result)
-      }
-
-    case .topRated:
-      APIService.shared.getTopRatedMovies { (result) in
-        handleResult(result: result)
-      }
-
-    case .upcoming:
-      APIService.shared.getUpcomingMovies { (result) in
-        handleResult(result: result)
-      }
-    }
+    viewModel.getMovies(with: endpoint, completion: completion)
   }
 
 }
