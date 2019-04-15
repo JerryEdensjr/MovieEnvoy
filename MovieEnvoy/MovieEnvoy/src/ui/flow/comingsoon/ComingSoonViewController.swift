@@ -27,5 +27,19 @@ class ComingSoonViewController: MovieEnvoyViewController {
     self.tableview.contentInset = UIEdgeInsets(top: self.titlebar.frame.maxY, left: 0.0, bottom: 0.0, right: 0.0)
     self.tableview.setNeedsLayout()
     self.tableview.layoutIfNeeded()
+
+    getMovies()
   }
+
+}
+
+extension ComingSoonViewController {
+  private func getMovies() {
+    viewModel.getUpcomingMovies {
+      DispatchQueue.main.async {
+        self.tableview.reloadData()
+      }
+    }
+  }
+
 }

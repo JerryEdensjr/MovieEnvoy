@@ -10,6 +10,10 @@ import UIKit
 
 class PopularViewController: MovieEnvoyViewController {
 
+  private struct Constants {
+    static let getNextPageTriggerValue = 10
+  }
+
   // MARK: propeties
 
   // MARK: outlets
@@ -28,6 +32,8 @@ class PopularViewController: MovieEnvoyViewController {
     tableview.contentInset = UIEdgeInsets(top: self.titlebar.frame.maxY, left: 0.0, bottom: 0.0, right: 0.0)
     tableview.setNeedsLayout()
     tableview.layoutIfNeeded()
+    
+    getMovies()
   }
 
   override func viewWillDisappear(_ animated: Bool) {
@@ -38,9 +44,22 @@ class PopularViewController: MovieEnvoyViewController {
 }
 
 extension PopularViewController {
+  private func getMovies() {
+    viewModel.getPopularMovies {
+      DispatchQueue.main.async {
+        self.tableview.reloadData()
+      }
+    }
+  }
+
+}
+
+extension PopularViewController {
   override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    if indexPath.row - 10 <= viewModel.movies.count {
-      print(items: "Fetch New Data")
+    if indexPath.row >= viewModel.movies.count - Constants.getNextPageTriggerValue {
+      viewModel.getNextPageOfPopularMovies {
+        tableView.reloadData()
+      }
     }
   }
 

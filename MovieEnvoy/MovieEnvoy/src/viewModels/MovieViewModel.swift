@@ -31,6 +31,10 @@ final class MovieViewModel: NSObject {
     self.movies.append(contentsOf: movies)
   }
 
+  override var debugDescription: String {
+    return super.description + " numberOfCachedMovies: \(movies.count), currentPage: \(currentPage), totalPage: \(totalPages), totalResults: \(totalResults)"
+  }
+
 }
 
 extension MovieViewModel {
@@ -41,6 +45,12 @@ extension MovieViewModel {
   }
 
   func getPopularMovies(completion: @escaping () -> Void) {
+    getMovies(with: .popular) {
+      completion()
+    }
+  }
+
+  func getNextPageOfPopularMovies(completion: @escaping () -> Void) {
     getMovies(with: .popular) {
       completion()
     }

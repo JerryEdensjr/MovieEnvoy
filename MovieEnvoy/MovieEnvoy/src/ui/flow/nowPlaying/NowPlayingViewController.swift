@@ -25,5 +25,19 @@ class NowPlayingViewController: MovieEnvoyViewController {
     super.viewWillAppear(animated)
     self.view.bringSubviewToFront(self.titlebar)
     self.tableview.contentInset = UIEdgeInsets(top: self.titlebar.frame.maxY, left: 0.0, bottom: 0.0, right: 0.0)
+    
+    getMovies()
   }
+
+}
+
+extension NowPlayingViewController {
+  private func getMovies() {
+    viewModel.getMoviesPlayingNow {
+      DispatchQueue.main.async {
+        self.tableview.reloadData()
+      }
+    }
+  }
+
 }
