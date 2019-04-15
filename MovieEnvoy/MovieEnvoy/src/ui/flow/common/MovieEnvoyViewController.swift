@@ -33,6 +33,7 @@ class MovieEnvoyViewController: UIViewController {
     tableview.rowHeight = UITableView.automaticDimension
     tableview.estimatedRowHeight = Constants.estimatedRowHeight
     tableview.showsVerticalScrollIndicator = false
+    tableview.contentInset = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 0.0)
 
     tableview.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: MovieInfoTableViewCell.cellIdentifier())
     tableview.dataSource = viewModel

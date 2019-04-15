@@ -29,10 +29,9 @@ class PopularViewController: MovieEnvoyViewController {
     super.viewWillAppear(animated)
 
     view.bringSubviewToFront(self.titlebar)
-    tableview.contentInset = UIEdgeInsets(top: self.titlebar.frame.maxY, left: 0.0, bottom: 0.0, right: 0.0)
     tableview.setNeedsLayout()
     tableview.layoutIfNeeded()
-    
+
     getMovies()
   }
 
