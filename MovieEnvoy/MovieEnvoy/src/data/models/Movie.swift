@@ -19,3 +19,14 @@ class Movie: Codable {
   let voteCount: Int
 
 }
+
+extension Movie: CustomDebugStringConvertible {
+  var debugDescription: String {
+    return """
+    Movie:
+      id: \(id)
+      title: \(title)
+    """
+  }
+
+}
