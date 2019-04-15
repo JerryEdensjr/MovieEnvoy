@@ -35,6 +35,7 @@ class MovieInfoTableViewCell: UITableViewCell {
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.lineSpacing = 4
     paragraphStyle.alignment = .left
+    paragraphStyle.lineBreakMode = .byTruncatingTail
     overview.attributedText = NSAttributedString(string: movie.overview, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
 
     posterImageView.af_setImage(withURL: URL(string: APIService.context.imageBaseURLString + movie.posterPath)!)
