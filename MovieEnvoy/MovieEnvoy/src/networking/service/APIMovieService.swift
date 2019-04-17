@@ -36,9 +36,23 @@ extension APIService: MovieService {
     }
   }
 
-  func getTopRatedMovies(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
-    let request = Alamofire.request(MovieRouter.getTopRatedMovies)
-    handleRequest(with: request, completion: completion)
+  func getTopRatedMovies(page: Int, completion: @escaping (APIServiceResult<[Movie]>, _ page: Int, _ totalPages: Int, _ totalResults: Int) -> Void) {
+    let request = Alamofire.request(MovieRouter.getTopRatedMovies(page: page))
+
+    request.responseData(queue: movieQueue) { requestResponse in
+      do {
+        let data = requestResponse.data
+        let response = try getResponse(from: data, responseType: GetTopRatedMovieResponseModel.self)
+
+        DispatchQueue.main.async {
+          completion(.success(response.results), response.page, response.totalPages, response.totalResults)
+        }
+
+      } catch {
+        print(items: error.localizedDescription)
+        completion(.failure(error), 0, 0, 0)
+      }
+    }
   }
 
   func getUpcomingMovies(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {

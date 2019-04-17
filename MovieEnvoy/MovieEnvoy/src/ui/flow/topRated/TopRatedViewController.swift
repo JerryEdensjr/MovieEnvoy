@@ -10,6 +10,10 @@ import UIKit
 
 class TopRatedViewController: MovieEnvoyViewController {
 
+  private struct Constants {
+    static let getNextPageTriggerValue = 10
+  }
+
   // MARK: propeties
 
   // MARK: outlets
@@ -37,6 +41,17 @@ extension TopRatedViewController {
     viewModel.getTopRatedMovies {
       DispatchQueue.main.async {
         self.tableview.reloadData()
+      }
+    }
+  }
+
+}
+
+extension TopRatedViewController {
+  override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.row >= viewModel.movies.count - Constants.getNextPageTriggerValue {
+      viewModel.getNextPageOfTopRatedMovies {
+        tableView.reloadData()
       }
     }
   }

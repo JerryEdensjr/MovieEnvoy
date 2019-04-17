@@ -62,6 +62,12 @@ extension MovieViewModel {
     }
   }
 
+  func getNextPageOfTopRatedMovies(completion: @escaping () -> Void) {
+    getMovies(with: .topRated) {
+      completion()
+    }
+  }
+
   func getUpcomingMovies(completion: @escaping () -> Void) {
     getMovies(with: .upcoming) {
       completion()
@@ -112,8 +118,18 @@ extension MovieViewModel {
 
     case .topRated:
       reset()
-      APIService.shared.getTopRatedMovies { (result) in
+      APIService.shared.getTopRatedMovies { [weak self] (result, page, totalPages, totalResults) in
         handleResult(result: result)
+
+        switch result {
+        case .success(let movies):
+          self.configure(with: (movies, page, totalPages, totalResults))
+          completion()
+
+        case .failure(let error):
+          print(items: error.localizedDescription)
+          completion()
+        }
       }
 
     case .upcoming:
