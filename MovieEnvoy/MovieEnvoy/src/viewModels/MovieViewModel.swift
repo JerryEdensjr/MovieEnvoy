@@ -169,6 +169,3 @@ extension MovieViewModel: UITableViewDataSource {
   }
 
 }
-
-extension MovieViewModel: UITableViewDelegate {
-}
