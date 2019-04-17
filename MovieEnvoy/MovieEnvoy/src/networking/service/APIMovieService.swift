@@ -20,7 +20,9 @@ extension APIService: MovieService {
   func getPopularMovies(page: Int, completion: @escaping (_ reult: APIServiceResult<[Movie]>, _ page: Int, _ totalPages: Int, _ totalResults: Int) -> Void) {
     let request = Alamofire.request(MovieRouter.getPopularMovies(page: page))
 
-    request.responseData(queue: movieQueue) { requestResponse in
+    request.responseData(queue: movieQueue) { [weak self] requestResponse in
+        guard let self = self else { return }
+
       do {
         let data = requestResponse.data
         let response = try self.getResponse(from: data, responseType: GetPopularMovieResponseModel.self)
@@ -39,10 +41,12 @@ extension APIService: MovieService {
   func getTopRatedMovies(page: Int, completion: @escaping (APIServiceResult<[Movie]>, _ page: Int, _ totalPages: Int, _ totalResults: Int) -> Void) {
     let request = Alamofire.request(MovieRouter.getTopRatedMovies(page: page))
 
-    request.responseData(queue: movieQueue) { requestResponse in
+    request.responseData(queue: movieQueue) { [weak self] requestResponse in
+        guard let self = self else { return }
+
       do {
         let data = requestResponse.data
-        let response = try getResponse(from: data, responseType: GetTopRatedMovieResponseModel.self)
+        let response = try self.getResponse(from: data, responseType: GetTopRatedMoviesResponseModel.self)
 
         DispatchQueue.main.async {
           completion(.success(response.results), response.page, response.totalPages, response.totalResults)
@@ -64,7 +68,9 @@ extension APIService: MovieService {
 
 private extension APIService {
   private func handleRequest(with request: DataRequest, completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
-    request.responseData(queue: movieQueue) { requestResponse in
+    request.responseData(queue: movieQueue) { [weak self] requestResponse in
+        guard let self = self else { return }
+
       do {
         let data = requestResponse.data
         let response = try self.getResponse(from: data, responseType: GetMovieResponseModel.self)

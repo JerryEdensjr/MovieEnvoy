@@ -100,6 +100,7 @@ extension MovieViewModel {
         movies = [Movie]()
       }
       currentPage += 1
+
       APIService.shared.getPopularMovies(page: currentPage) { [weak self] (result, page, totalPages, totalResults) in
         guard let self = self else { return }
 
@@ -117,13 +118,19 @@ extension MovieViewModel {
       }
 
     case .topRated:
-      reset()
-      APIService.shared.getTopRatedMovies { [weak self] (result, page, totalPages, totalResults) in
+      if currentPage == 0 {
+        movies = [Movie]()
+      }
+      currentPage += 1
+
+      APIService.shared.getTopRatedMovies(page: currentPage) { [weak self] (result, page, totalPages, totalResults) in
+        guard let self = self else { return }
+
         handleResult(result: result)
 
         switch result {
         case .success(let movies):
-          self.configure(with: (movies, page, totalPages, totalResults))
+            self.configure(with: (movies, page, totalPages, totalResults))
           completion()
 
         case .failure(let error):
