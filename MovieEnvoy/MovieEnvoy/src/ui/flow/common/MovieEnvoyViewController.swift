@@ -37,7 +37,7 @@ class MovieEnvoyViewController: UIViewController {
 
     tableview.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: MovieInfoTableViewCell.cellIdentifier())
     tableview.dataSource = viewModel
-    tableview.delegate = self
+    tableview.delegate = viewModel
   }
 
   // MARK: overrides
