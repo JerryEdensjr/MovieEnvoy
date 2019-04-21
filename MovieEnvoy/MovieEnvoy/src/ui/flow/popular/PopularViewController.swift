@@ -64,4 +64,19 @@ extension PopularViewController {
     }
   }
 
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let movie = viewModel.movies[safe: indexPath.row],
+      let navController = navigationController else {
+        fatalError("No movie data available for \(indexPath.row)")
+    }
+
+    // get rid of the Back text
+    title = ""
+    let movieDetailCoordinator = MovieDetailCoordinator(navigationController: navController)
+    movieDetailCoordinator.parentCoordinator = coordinator
+    movieDetailCoordinator.movie = movie
+    movieDetailCoordinator.start()
+
+  }
+
 }
