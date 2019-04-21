@@ -5,15 +5,11 @@
 
 import UIKit
 
-class MovieDetailViewController: UIViewController {
+class MovieDetailViewController: UIViewController, Storyboardable {
 
   // MARK: - properties
+  var coordinator: MovieDetailCoordinator?
   private var movie: Movie?
-
-  // MARK: - overrides
-  override func viewDidLoad() {
-    super.viewDidLoad()
-  }
 
   // MARK: - configuration
   func configure(with movie: Movie) {
