@@ -29,8 +29,8 @@ class TopRatedViewController: MovieEnvoyViewController, Storyboardable {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.view.bringSubviewToFront(self.titlebar)
-    self.tableview.setNeedsLayout()
-    self.tableview.layoutIfNeeded()
+    self.tableView.setNeedsLayout()
+    self.tableView.layoutIfNeeded()
 
     getMovies()
   }
@@ -41,7 +41,7 @@ extension TopRatedViewController {
   private func getMovies() {
     viewModel.getTopRatedMovies {
       DispatchQueue.main.async {
-        self.tableview.reloadData()
+        self.tableView.reloadData()
       }
     }
   }

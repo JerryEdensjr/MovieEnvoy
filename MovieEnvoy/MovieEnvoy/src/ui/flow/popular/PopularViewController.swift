@@ -30,15 +30,15 @@ class PopularViewController: MovieEnvoyViewController, Storyboardable {
     super.viewWillAppear(animated)
 
     view.bringSubviewToFront(self.titlebar)
-    tableview.setNeedsLayout()
-    tableview.layoutIfNeeded()
+    tableView.setNeedsLayout()
+    tableView.layoutIfNeeded()
 
     getMovies()
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
-    tableview.delegate = nil
+    tableView.delegate = nil
   }
 
 }
@@ -47,7 +47,7 @@ extension PopularViewController {
   private func getMovies() {
     viewModel.getPopularMovies {
       DispatchQueue.main.async {
-        self.tableview.reloadData()
+        self.tableView.reloadData()
       }
     }
   }

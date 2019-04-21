@@ -25,8 +25,8 @@ class ComingSoonViewController: MovieEnvoyViewController, Storyboardable {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     self.view.bringSubviewToFront(self.titlebar)
-    self.tableview.setNeedsLayout()
-    self.tableview.layoutIfNeeded()
+    self.tableView.setNeedsLayout()
+    self.tableView.layoutIfNeeded()
 
     getMovies()
   }
@@ -37,7 +37,7 @@ extension ComingSoonViewController {
   private func getMovies() {
     viewModel.getUpcomingMovies {
       DispatchQueue.main.async {
-        self.tableview.reloadData()
+        self.tableView.reloadData()
       }
     }
   }

@@ -16,28 +16,28 @@ class MovieEnvoyViewController: UIViewController {
 
   // MARK: propeties
   internal let viewModel = MovieViewModel()
-  internal let tableview = UITableView()
+  internal let tableView = UITableView()
   internal var endpoint: APIEndpoint = .nowPlaying
 
   // MARK: outlets
 
   // MARK: setup
   private func setupTableview() {
-    view.addSubview(self.tableview)
+    view.addSubview(self.tableView)
 
-    tableview.translatesAutoresizingMaskIntoConstraints = false
-    tableview.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-    tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-    tableview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-    tableview.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-    tableview.rowHeight = UITableView.automaticDimension
-    tableview.estimatedRowHeight = Constants.estimatedRowHeight
-    tableview.showsVerticalScrollIndicator = false
-    tableview.contentInset = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 0.0)
+    tableView.translatesAutoresizingMaskIntoConstraints = false
+    tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+    tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+    tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+    tableView.rowHeight = UITableView.automaticDimension
+    tableView.estimatedRowHeight = Constants.estimatedRowHeight
+    tableView.showsVerticalScrollIndicator = false
+    tableView.contentInset = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 0.0)
 
-    tableview.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: MovieInfoTableViewCell.cellIdentifier())
-    tableview.dataSource = viewModel
-    tableview.delegate = self
+    tableView.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: MovieInfoTableViewCell.cellIdentifier())
+    tableView.dataSource = viewModel
+    tableView.delegate = self
   }
 
   // MARK: overrides

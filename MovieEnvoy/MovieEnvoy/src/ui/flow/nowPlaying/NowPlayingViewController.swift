@@ -35,7 +35,7 @@ extension NowPlayingViewController {
   private func getMovies() {
     viewModel.getMoviesPlayingNow {
       DispatchQueue.main.async {
-        self.tableview.reloadData()
+        self.tableView.reloadData()
       }
     }
   }
