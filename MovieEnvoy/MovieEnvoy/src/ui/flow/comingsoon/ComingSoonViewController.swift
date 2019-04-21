@@ -14,16 +14,18 @@ class ComingSoonViewController: MovieEnvoyViewController, Storyboardable {
   var coordinator: UpcomingMoviesCoordinator?
   
   // MARK: outlets
-  @IBOutlet weak var titlebar: UIView!
+  @IBOutlet private var titlebar: UIView!
 
   // MARK: overrides
-  override func awakeFromNib() {
-    super.awakeFromNib()
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
     self.endpoint = APIEndpoint.upcoming
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    navigationController?.setNavigationBarHidden(true, animated: false)
+    
     self.view.bringSubviewToFront(self.titlebar)
     self.tableView.setNeedsLayout()
     self.tableView.layoutIfNeeded()

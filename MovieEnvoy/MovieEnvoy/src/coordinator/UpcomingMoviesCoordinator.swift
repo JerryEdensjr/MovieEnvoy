@@ -19,7 +19,7 @@ final class UpcomingMoviesCoordinator: Coordinator {
   }
 
   func start() {
-    let upcomingVC = ComingSoonViewController()
+    let upcomingVC = ComingSoonViewController.instantiate()
 
     upcomingVC.coordinator = self
     upcomingVC.tabBarItem = UITabBarItem(title: "Upcoming", image: UIImage(named: "upcoming"), selectedImage: nil)

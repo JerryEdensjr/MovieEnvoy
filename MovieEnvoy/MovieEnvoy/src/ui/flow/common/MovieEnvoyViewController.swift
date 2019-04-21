@@ -12,7 +12,8 @@ class MovieEnvoyViewController: UIViewController {
 
   private struct Constants {
     static let estimatedRowHeight: CGFloat = 151.0
-    static let topInset: CGFloat = 20.0
+    static let topInset: CGFloat = 34.0
+    static let titleBarHeight: CGFloat = 44.0
   }
 
   // MARK: propeties

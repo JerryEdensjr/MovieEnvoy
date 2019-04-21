@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ibY-o1-ef0">
-                                        <rect key="frame" x="100.5" y="32" width="174" height="26"/>
+                                        <rect key="frame" x="100.5" y="38" width="174" height="26"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -31,10 +31,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.86852134150000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="ibY-o1-ef0" secondAttribute="bottom" constant="8" id="5vu-0r-2EI"/>
+                                    <constraint firstAttribute="bottom" secondItem="ibY-o1-ef0" secondAttribute="bottom" constant="2" id="5vu-0r-2EI"/>
                                     <constraint firstAttribute="height" constant="66" id="Ba7-LS-GGH"/>
                                     <constraint firstItem="ibY-o1-ef0" firstAttribute="centerX" secondItem="o6P-xA-w7v" secondAttribute="centerX" id="LJl-fA-tX0"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="66" id="jJu-vx-2yB"/>
                                 </constraints>
                             </view>
                         </subviews>

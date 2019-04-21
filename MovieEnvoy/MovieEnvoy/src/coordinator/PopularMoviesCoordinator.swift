@@ -19,7 +19,7 @@ final class PopularMoviesCoordinator: Coordinator {
   }
 
   func start() {
-    let popularVC = PopularViewController()
+    let popularVC = PopularViewController.instantiate()
 
     popularVC.coordinator = self
     popularVC.tabBarItem = UITabBarItem(title: "Popular", image: UIImage(named: "popular"), selectedImage: nil)

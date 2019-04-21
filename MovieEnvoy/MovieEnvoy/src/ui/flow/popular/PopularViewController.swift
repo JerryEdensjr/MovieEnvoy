@@ -28,7 +28,8 @@ class PopularViewController: MovieEnvoyViewController, Storyboardable {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
+    navigationController?.setNavigationBarHidden(true, animated: false)
+    
     view.bringSubviewToFront(self.titlebar)
     tableView.setNeedsLayout()
     tableView.layoutIfNeeded()

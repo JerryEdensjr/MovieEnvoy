@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXM-cy-7Kf">
-                                        <rect key="frame" x="126.5" y="32" width="122.5" height="26"/>
+                                        <rect key="frame" x="126.5" y="38" width="122.5" height="26"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -31,7 +31,7 @@
                                 <color key="backgroundColor" white="1" alpha="0.86852134146341464" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="66" id="BM8-c1-ORL"/>
-                                    <constraint firstAttribute="bottom" secondItem="qXM-cy-7Kf" secondAttribute="bottom" constant="8" id="cIh-gc-Gdo"/>
+                                    <constraint firstAttribute="bottom" secondItem="qXM-cy-7Kf" secondAttribute="bottom" constant="2" id="cIh-gc-Gdo"/>
                                     <constraint firstItem="qXM-cy-7Kf" firstAttribute="centerX" secondItem="fM2-8V-9Ky" secondAttribute="centerX" id="fPD-F5-cQo"/>
                                 </constraints>
                             </view>

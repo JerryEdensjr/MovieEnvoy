@@ -21,16 +21,18 @@ class TopRatedViewController: MovieEnvoyViewController, Storyboardable {
   @IBOutlet weak var titlebar: UIView!
 
   // MARK: overrides
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    self.endpoint = APIEndpoint.topRated
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    endpoint = APIEndpoint.topRated
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.view.bringSubviewToFront(self.titlebar)
-    self.tableView.setNeedsLayout()
-    self.tableView.layoutIfNeeded()
+    navigationController?.setNavigationBarHidden(true, animated: false)
+    
+    view.bringSubviewToFront(self.titlebar)
+    tableView.setNeedsLayout()
+    tableView.layoutIfNeeded()
 
     getMovies()
   }
@@ -40,7 +42,7 @@ class TopRatedViewController: MovieEnvoyViewController, Storyboardable {
 extension TopRatedViewController {
   private func getMovies() {
     viewModel.getTopRatedMovies {
-      DispatchQueue.main.async {
+      DispatchQueue.main.async { [unowned self] in
         self.tableView.reloadData()
       }
     }
