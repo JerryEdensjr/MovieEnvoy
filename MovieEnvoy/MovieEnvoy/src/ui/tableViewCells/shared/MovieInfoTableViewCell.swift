@@ -28,6 +28,18 @@ class MovieInfoTableViewCell: UITableViewCell {
     posterImageView.roundCorners()
   }
 
+  override func draw(_ rect: CGRect) {
+    let size = movieTitle.bounds.size
+    movieTitle.sizeToFit()
+    if !__CGSizeEqualToSize(size, movieTitle.bounds.size) {
+      setNeedsUpdateConstraints()
+      updateConstraintsIfNeeded()
+    }
+
+    super.draw(rect)
+  }
+
+  // MARK: - configureation
   func configure(with movie: Movie) {
     movieTitle.text = movie.title
     releaseDate.text = movie.releaseDate

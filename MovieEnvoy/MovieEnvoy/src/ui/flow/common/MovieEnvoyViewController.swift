@@ -12,14 +12,22 @@ class MovieEnvoyViewController: UIViewController {
 
   private struct Constants {
     static let estimatedRowHeight: CGFloat = 151.0
+    static let topInset: CGFloat = 20.0
   }
 
   // MARK: propeties
+  private var previousTableViewWidth: CGFloat = 0.0
   internal let viewModel = MovieViewModel()
   internal let tableView = UITableView()
   internal var endpoint: APIEndpoint = .nowPlaying
 
   // MARK: outlets
+
+  // MARK: overrides
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    setupTableview()
+  }
 
   // MARK: setup
   private func setupTableview() {
@@ -33,17 +41,11 @@ class MovieEnvoyViewController: UIViewController {
     tableView.rowHeight = UITableView.automaticDimension
     tableView.estimatedRowHeight = Constants.estimatedRowHeight
     tableView.showsVerticalScrollIndicator = false
-    tableView.contentInset = UIEdgeInsets(top: 20.0, left: 0.0, bottom: 0.0, right: 0.0)
+    tableView.contentInset = UIEdgeInsets(top: Constants.topInset, left: 0.0, bottom: 0.0, right: 0.0)
 
     tableView.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: MovieInfoTableViewCell.cellIdentifier())
     tableView.dataSource = viewModel
     tableView.delegate = self
-  }
-
-  // MARK: overrides
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    setupTableview()
   }
 
 }
