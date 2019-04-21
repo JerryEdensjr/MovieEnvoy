@@ -15,7 +15,6 @@
 		63167A02226BE587004180DC /* UpcomingMoviesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63167A01226BE587004180DC /* UpcomingMoviesCoordinator.swift */; };
 		63167A04226BE6E8004180DC /* MainTabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63167A03226BE6E7004180DC /* MainTabBarCoordinator.swift */; };
 		63167A07226BEA5C004180DC /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63167A06226BEA5C004180DC /* Storyboardable.swift */; };
-		63374B65219CCB34008214F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63374B63219CCB34008214F4 /* Main.storyboard */; };
 		63374B68219CCB7A008214F4 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63374B67219CCB7A008214F4 /* NowPlayingViewController.swift */; };
 		63374B6A219CCB87008214F4 /* NowPlayingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63374B69219CCB87008214F4 /* NowPlayingViewController.storyboard */; };
 		63374B6C219CCBA6008214F4 /* ComingSoonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63374B6B219CCBA6008214F4 /* ComingSoonViewController.swift */; };
@@ -87,7 +86,6 @@
 		63167A01226BE587004180DC /* UpcomingMoviesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMoviesCoordinator.swift; sourceTree = "<group>"; };
 		63167A03226BE6E7004180DC /* MainTabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarCoordinator.swift; sourceTree = "<group>"; };
 		63167A06226BEA5C004180DC /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
-		63374B64219CCB34008214F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63374B67219CCB7A008214F4 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		63374B69219CCB87008214F4 /* NowPlayingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NowPlayingViewController.storyboard; sourceTree = "<group>"; };
 		63374B6B219CCBA6008214F4 /* ComingSoonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingSoonViewController.swift; sourceTree = "<group>"; };
@@ -200,14 +198,6 @@
 				63374B75219CCC2B008214F4 /* TopRatedViewController.swift */,
 			);
 			path = topRated;
-			sourceTree = "<group>";
-		};
-		63374B66219CCB48008214F4 /* main */ = {
-			isa = PBXGroup;
-			children = (
-				63374B63219CCB34008214F4 /* Main.storyboard */,
-			);
-			name = main;
 			sourceTree = "<group>";
 		};
 		63374B77219CCF38008214F4 /* tableViewCells */ = {
@@ -332,7 +322,7 @@
 			path = config;
 			sourceTree = "<group>";
 		};
-		63E5B0692268BD95009111DE /* coordinator */ = {
+		63E5B0692268BD95009111DE /* coordinators */ = {
 			isa = PBXGroup;
 			children = (
 				63E5B0A62268BE17009111DE /* Coordinator.swift */,
@@ -342,7 +332,7 @@
 				631679FF226BE55E004180DC /* TopRatedCoordinator.swift */,
 				63167A01226BE587004180DC /* UpcomingMoviesCoordinator.swift */,
 			);
-			path = coordinator;
+			path = coordinators;
 			sourceTree = "<group>";
 		};
 		63FF9D2F219CBA9B00C3ADF6 = {
@@ -372,7 +362,6 @@
 			isa = PBXGroup;
 			children = (
 				63B9A32E22623F05000C3584 /* config */,
-				6374F2F4225F6FC5006987E5 /* Extensions */,
 				63FF9D77219CBBD800C3ADF6 /* resources */,
 				63FF9D6D219CBBBB00C3ADF6 /* src */,
 				63FF9D78219CBCCF00C3ADF6 /* support files */,
@@ -402,8 +391,9 @@
 			isa = PBXGroup;
 			children = (
 				63FF9D74219CBBBB00C3ADF6 /* app */,
-				63E5B0692268BD95009111DE /* coordinator */,
+				63E5B0692268BD95009111DE /* coordinators */,
 				63374B7F219CDD2A008214F4 /* data */,
+				6374F2F4225F6FC5006987E5 /* Extensions */,
 				6374F2FB225F7639006987E5 /* networking */,
 				63167A05226BEA43004180DC /* protocols */,
 				63FF9D6E219CBBBB00C3ADF6 /* ui */,
@@ -429,7 +419,6 @@
 				631679F8226BE486004180DC /* mainTabBar */,
 				63FF9D70219CBBBB00C3ADF6 /* nowPlaying */,
 				63FF9D71219CBBBB00C3ADF6 /* popular */,
-				63374B66219CCB48008214F4 /* main */,
 				63374B60219CCA3F008214F4 /* topRated */,
 			);
 			path = flow;
@@ -639,7 +628,6 @@
 				63374B7C219CCFC5008214F4 /* MovieInfoTableViewCell.xib in Resources */,
 				63374B6E219CCBB3008214F4 /* ComingSoonViewController.storyboard in Resources */,
 				63374B74219CCC1B008214F4 /* TopRatedViewController.storyboard in Resources */,
-				63374B65219CCB34008214F4 /* Main.storyboard in Resources */,
 				63FF9D48219CBA9C00C3ADF6 /* LaunchScreen.storyboard in Resources */,
 				63FF9D45219CBA9C00C3ADF6 /* Assets.xcassets in Resources */,
 			);
@@ -845,14 +833,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		63374B63219CCB34008214F4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				63374B64219CCB34008214F4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		63FF9D46219CBA9C00C3ADF6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

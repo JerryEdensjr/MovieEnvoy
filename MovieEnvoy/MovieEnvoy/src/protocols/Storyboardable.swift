@@ -8,14 +8,6 @@
 
 import UIKit
 
-enum StoryboardName: String {
-  case nowPlaying = "NowPlayingViewController"
-  case popular = "PopularViewController"
-  case topRated = "TopRatedViewController"
-  case upcoming = "ComingSoonViewController"
-
-}
-
 protocol Storyboardable where Self: UIViewController {
   static func instantiate() -> Self
 
