@@ -8,10 +8,11 @@
 
 import UIKit
 
-class NowPlayingViewController: MovieEnvoyViewController {
+class NowPlayingViewController: MovieEnvoyViewController, Storyboardable {
 
   // MARK: propeties
-
+  var coordinator: NowPlayingCoordinator?
+  
   // MARK: outlets
   @IBOutlet weak var titlebar: UIView!
 
@@ -23,7 +24,21 @@ class NowPlayingViewController: MovieEnvoyViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.view.bringSubviewToFront(self.titlebar)
-    self.tableview.contentInset = UIEdgeInsets(top: self.titlebar.frame.maxY, left: 0.0, bottom: 0.0, right: 0.0)
+    view.bringSubviewToFront(titlebar)
+    navigationController?.setNavigationBarHidden(true, animated: false)
+    
+    getMovies()
   }
+
+}
+
+extension NowPlayingViewController {
+  private func getMovies() {
+    viewModel.getMoviesPlayingNow {
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+      }
+    }
+  }
+
 }

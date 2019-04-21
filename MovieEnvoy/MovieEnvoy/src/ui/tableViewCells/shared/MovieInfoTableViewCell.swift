@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AlamofireImage
 
 class MovieInfoTableViewCell: UITableViewCell {
 
@@ -18,6 +19,7 @@ class MovieInfoTableViewCell: UITableViewCell {
   @IBOutlet private var imageShadowView: UIView!
   @IBOutlet private var movieTitle: UILabel!
   @IBOutlet private var overview: UILabel!
+  @IBOutlet private var releaseDate: UILabel!
 
   // MARK: overrides
   override func awakeFromNib() {
@@ -26,12 +28,26 @@ class MovieInfoTableViewCell: UITableViewCell {
     posterImageView.roundCorners()
   }
 
+  override func draw(_ rect: CGRect) {
+    let size = movieTitle.bounds.size
+    movieTitle.sizeToFit()
+    if !__CGSizeEqualToSize(size, movieTitle.bounds.size) {
+      setNeedsUpdateConstraints()
+      updateConstraintsIfNeeded()
+    }
+
+    super.draw(rect)
+  }
+
+  // MARK: - configureation
   func configure(with movie: Movie) {
     movieTitle.text = movie.title
+    releaseDate.text = movie.releaseDate
 
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.lineSpacing = 4
     paragraphStyle.alignment = .left
+    paragraphStyle.lineBreakMode = .byTruncatingTail
     overview.attributedText = NSAttributedString(string: movie.overview, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
 
     posterImageView.af_setImage(withURL: URL(string: APIService.context.imageBaseURLString + movie.posterPath)!)

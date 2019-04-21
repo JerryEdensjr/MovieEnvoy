@@ -10,8 +10,23 @@ import Foundation
 
 class Movie: Codable {
 
+  let id: Int
   let title: String
   let overview: String
   let posterPath: String
+  let releaseDate: String
+  let voteAverage: Double
+  let voteCount: Int
+
+}
+
+extension Movie: CustomDebugStringConvertible {
+  var debugDescription: String {
+    return """
+    Movie:
+      id: \(id)
+      title: \(title)
+    """
+  }
 
 }

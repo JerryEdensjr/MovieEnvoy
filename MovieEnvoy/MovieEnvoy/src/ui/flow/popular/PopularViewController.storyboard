@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="66"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Popular Movies" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPw-Fc-g7S">
-                                        <rect key="frame" x="112" y="32" width="151" height="26"/>
+                                        <rect key="frame" x="112" y="38" width="151" height="26"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -30,7 +30,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="0.86852134150000004" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="xPw-Fc-g7S" secondAttribute="bottom" constant="8" id="3go-HY-7Gr"/>
+                                    <constraint firstAttribute="bottom" secondItem="xPw-Fc-g7S" secondAttribute="bottom" constant="2" id="3go-HY-7Gr"/>
                                     <constraint firstItem="xPw-Fc-g7S" firstAttribute="centerX" secondItem="3MV-Bl-r0v" secondAttribute="centerX" id="OZ2-MR-0o2"/>
                                     <constraint firstAttribute="height" constant="66" id="hSA-iz-FKL"/>
                                 </constraints>

@@ -10,44 +10,49 @@ import UIKit
 
 class MovieEnvoyViewController: UIViewController {
 
+  private struct Constants {
+    static let estimatedRowHeight: CGFloat = 151.0
+    static let topInset: CGFloat = 34.0
+    static let titleBarHeight: CGFloat = 44.0
+  }
+
   // MARK: propeties
-  fileprivate let datasource = MovieDBDatasource.sharedInstance
-  internal let tableview = UITableView()
-  internal var endpoint: APIEndpoint!
+  private var previousTableViewWidth: CGFloat = 0.0
+  internal let viewModel = MovieViewModel()
+  internal let tableView = UITableView()
+  internal var endpoint: APIEndpoint = .nowPlaying
 
   // MARK: outlets
 
-  // MARK: setup
-  fileprivate func setupTableview() {
-    self.tableview.translatesAutoresizingMaskIntoConstraints = false
-    self.view.addSubview(self.tableview)
-    self.tableview.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-    self.tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-    self.tableview.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-    self.tableview.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-    self.tableview.rowHeight = UITableView.automaticDimension
-    self.tableview.estimatedRowHeight = 140.0
-    self.tableview.delegate = self
-
-    self.tableview.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: MovieInfoTableViewCell.cellIdentifier())
-    self.tableview.dataSource = self.datasource
-  }
-
   // MARK: overrides
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    datasource.refreshMovieList(with: endpoint) {
-      DispatchQueue.main.async {
-        self.tableview.reloadData()
-      }
-    }
-  }
-
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     setupTableview()
   }
+
+  // MARK: setup
+  private func setupTableview() {
+    view.addSubview(self.tableView)
+
+    tableView.translatesAutoresizingMaskIntoConstraints = false
+    tableView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+    tableView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
+    tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+    tableView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+    tableView.rowHeight = UITableView.automaticDimension
+    tableView.estimatedRowHeight = Constants.estimatedRowHeight
+    tableView.showsVerticalScrollIndicator = false
+    tableView.contentInset = UIEdgeInsets(top: Constants.topInset, left: 0.0, bottom: 0.0, right: 0.0)
+
+    tableView.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: MovieInfoTableViewCell.cellIdentifier())
+    tableView.dataSource = viewModel
+    tableView.delegate = self
+  }
+
 }
 
 extension MovieEnvoyViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+  }
+
 }

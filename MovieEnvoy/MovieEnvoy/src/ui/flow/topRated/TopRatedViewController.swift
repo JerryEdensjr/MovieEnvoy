@@ -8,25 +8,55 @@
 
 import UIKit
 
-class TopRatedViewController: MovieEnvoyViewController {
+class TopRatedViewController: MovieEnvoyViewController, Storyboardable {
+
+  private struct Constants {
+    static let getNextPageTriggerValue = 10
+  }
 
   // MARK: propeties
-
+  var coordinator: TopRatedCoordinator?
+  
   // MARK: outlets
   @IBOutlet weak var titlebar: UIView!
 
   // MARK: overrides
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    self.endpoint = APIEndpoint.topRated
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    endpoint = APIEndpoint.topRated
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    self.view.bringSubviewToFront(self.titlebar)
-    self.tableview.contentInset = UIEdgeInsets(top: self.titlebar.frame.maxY, left: 0.0, bottom: 0.0, right: 0.0)
-    self.tableview.setNeedsLayout()
-    self.tableview.layoutIfNeeded()
+    navigationController?.setNavigationBarHidden(true, animated: false)
+    
+    view.bringSubviewToFront(self.titlebar)
+    tableView.setNeedsLayout()
+    tableView.layoutIfNeeded()
+
+    getMovies()
+  }
+
+}
+
+extension TopRatedViewController {
+  private func getMovies() {
+    viewModel.getTopRatedMovies {
+      DispatchQueue.main.async { [unowned self] in
+        self.tableView.reloadData()
+      }
+    }
+  }
+
+}
+
+extension TopRatedViewController {
+  override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    if indexPath.row >= viewModel.movies.count - Constants.getNextPageTriggerValue {
+      viewModel.getNextPageOfTopRatedMovies {
+        tableView.reloadData()
+      }
+    }
   }
 
 }

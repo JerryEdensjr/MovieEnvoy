@@ -8,24 +8,40 @@
 
 import UIKit
 
-class ComingSoonViewController: MovieEnvoyViewController {
+class ComingSoonViewController: MovieEnvoyViewController, Storyboardable {
 
   // MARK: propeties
-
+  var coordinator: UpcomingMoviesCoordinator?
+  
   // MARK: outlets
-  @IBOutlet weak var titlebar: UIView!
+  @IBOutlet private var titlebar: UIView!
 
   // MARK: overrides
-  override func awakeFromNib() {
-    super.awakeFromNib()
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
     self.endpoint = APIEndpoint.upcoming
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    navigationController?.setNavigationBarHidden(true, animated: false)
+    
     self.view.bringSubviewToFront(self.titlebar)
-    self.tableview.contentInset = UIEdgeInsets(top: self.titlebar.frame.maxY, left: 0.0, bottom: 0.0, right: 0.0)
-    self.tableview.setNeedsLayout()
-    self.tableview.layoutIfNeeded()
+    self.tableView.setNeedsLayout()
+    self.tableView.layoutIfNeeded()
+
+    getMovies()
   }
+
+}
+
+extension ComingSoonViewController {
+  private func getMovies() {
+    viewModel.getUpcomingMovies {
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+      }
+    }
+  }
+
 }

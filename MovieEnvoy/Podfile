@@ -6,8 +6,8 @@ target 'MovieEnvoy' do
   inhibit_all_warnings!
 
   # Pods for MovieEnvoy
-  pod 'Alamofire', '~> 4.7'
-  pod 'AlamofireImage', '~>3.4'
+  pod 'Alamofire', '~> 4.8'
+  pod 'AlamofireImage', '~>3.5'
   pod "PromiseKit", "~> 6.0"
   pod 'PromiseKit/Alamofire', '~> 6.0'
 
