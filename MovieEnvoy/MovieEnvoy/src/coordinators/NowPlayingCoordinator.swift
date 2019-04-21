@@ -23,7 +23,7 @@ final class NowPlayingCoordinator: Coordinator {
 
     nowPlayingVC.coordinator = self
     nowPlayingVC.tabBarItem = UITabBarItem(title: "Now Playing", image: UIImage(named: "nowPlaying"), selectedImage: nil)
-
+    
     navigationController.pushViewController(nowPlayingVC, animated: false)
   }
 
