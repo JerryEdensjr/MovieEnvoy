@@ -20,63 +20,13 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="selectedImageTintColor" name="tabbarTint"/>
                     </tabBar>
-                    <connections>
-                        <segue destination="dAF-pP-SO7" kind="relationship" relationship="viewControllers" id="6nn-ib-0t8"/>
-                        <segue destination="pHk-Wt-5dp" kind="relationship" relationship="viewControllers" id="lgO-Ow-qee"/>
-                        <segue destination="fFQ-AU-aUK" kind="relationship" relationship="viewControllers" id="cXR-eE-smg"/>
-                        <segue destination="Qkj-OF-pOy" kind="relationship" relationship="viewControllers" id="va5-UM-UeA"/>
-                    </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--NowPlayingViewController-->
-        <scene sceneID="cD7-xU-gLO">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="nowPlayingStoryboard" storyboardName="NowPlaying" referencedIdentifier="NowPlayingViewController" id="dAF-pP-SO7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Now Playing" image="nowPlaying" landscapeImage="nowPlaying" id="Oo7-4H-wbJ"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Er1-9U-XyF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="783" y="-212"/>
-        </scene>
-        <!--PopularViewController-->
-        <scene sceneID="Hqr-oV-I29">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="popularStoryboard" storyboardName="Popular" referencedIdentifier="PopularViewController" id="pHk-Wt-5dp" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Popular" image="popular" landscapeImage="popular" id="OIW-CH-2MG"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5dG-up-k7p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="772" y="-113"/>
-        </scene>
-        <!--TopRatedViewController-->
-        <scene sceneID="EPF-Tk-VVa">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="topRatedStoryboard" storyboardName="TopRated" referencedIdentifier="TopRatedViewController" id="fFQ-AU-aUK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Rated" image="topRated" landscapeImage="topRated" id="LRS-jA-jBm"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RiR-ly-hnl" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="773" y="-1"/>
-        </scene>
-        <!--ComingSoonViewController-->
-        <scene sceneID="jGO-CJ-1EO">
-            <objects>
-                <viewControllerPlaceholder storyboardIdentifier="comingSoonStoryboard" storyboardName="ComingSoon" referencedIdentifier="ComingSoonViewController" id="Qkj-OF-pOy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Upcoming" image="upcoming" landscapeImage="upcoming" id="bQW-yp-QFb"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xwb-Dc-xFT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="788" y="125"/>
-        </scene>
     </scenes>
     <resources>
-        <image name="nowPlaying" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="popular" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="topRated" width="21.333333969116211" height="21.333333969116211"/>
-        <image name="upcoming" width="21.333333969116211" height="21.333333969116211"/>
         <namedColor name="tabbarTint">
             <color red="0.039215686274509803" green="0.45490196078431372" blue="0.71764705882352942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

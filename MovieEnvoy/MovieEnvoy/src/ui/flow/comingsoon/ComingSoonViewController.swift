@@ -8,10 +8,11 @@
 
 import UIKit
 
-class ComingSoonViewController: MovieEnvoyViewController {
+class ComingSoonViewController: MovieEnvoyViewController, Storyboardable {
 
   // MARK: propeties
-
+  var coordinator: UpcomingMoviesCoordinator?
+  
   // MARK: outlets
   @IBOutlet weak var titlebar: UIView!
 

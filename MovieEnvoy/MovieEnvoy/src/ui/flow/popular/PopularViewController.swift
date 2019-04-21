@@ -8,13 +8,14 @@
 
 import UIKit
 
-class PopularViewController: MovieEnvoyViewController {
+class PopularViewController: MovieEnvoyViewController, Storyboardable {
 
   private struct Constants {
     static let getNextPageTriggerValue = 10
   }
 
   // MARK: propeties
+  var coordinator: PopularMoviesCoordinator?
 
   // MARK: outlets
   @IBOutlet weak var titlebar: UIView!

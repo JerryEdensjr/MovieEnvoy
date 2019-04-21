@@ -8,14 +8,15 @@
 
 import UIKit
 
-class TopRatedViewController: MovieEnvoyViewController {
+class TopRatedViewController: MovieEnvoyViewController, Storyboardable {
 
   private struct Constants {
     static let getNextPageTriggerValue = 10
   }
 
   // MARK: propeties
-
+  var coordinator: TopRatedCoordinator?
+  
   // MARK: outlets
   @IBOutlet weak var titlebar: UIView!
 

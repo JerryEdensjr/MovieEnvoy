@@ -8,10 +8,11 @@
 
 import UIKit
 
-class NowPlayingViewController: MovieEnvoyViewController {
+class NowPlayingViewController: MovieEnvoyViewController, Storyboardable {
 
   // MARK: propeties
-
+  var coordinator: NowPlayingCoordinator?
+  
   // MARK: outlets
   @IBOutlet weak var titlebar: UIView!
 
