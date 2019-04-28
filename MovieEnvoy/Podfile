@@ -8,6 +8,7 @@ target 'MovieEnvoy' do
   # Pods for MovieEnvoy
   pod 'Alamofire', '~> 4.8'
   pod 'AlamofireImage', '~>3.5'
+  pod 'Kingfisher'
   pod "PromiseKit", "~> 6.0"
   pod 'PromiseKit/Alamofire', '~> 6.0'
 

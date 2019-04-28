@@ -17,13 +17,28 @@
                     <view key="view" contentMode="scaleToFill" id="jHR-ul-U30" userLabel="root">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ifS-Ja-R39">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ifS-Ja-R39" firstAttribute="leading" secondItem="LWH-rB-xbZ" secondAttribute="leading" id="3GM-UM-hNL"/>
+                            <constraint firstAttribute="bottom" secondItem="ifS-Ja-R39" secondAttribute="bottom" id="Bu9-EH-qHT"/>
+                            <constraint firstItem="ifS-Ja-R39" firstAttribute="top" secondItem="LWH-rB-xbZ" secondAttribute="top" id="HrE-Y0-3yL"/>
+                            <constraint firstItem="LWH-rB-xbZ" firstAttribute="trailing" secondItem="ifS-Ja-R39" secondAttribute="trailing" id="pwb-Tv-n0k"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="LWH-rB-xbZ"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="ifS-Ja-R39" id="4oq-6q-cdc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AE2-lb-8vi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-461" y="-46"/>
+            <point key="canvasLocation" x="4" y="-82"/>
         </scene>
     </scenes>
 </document>

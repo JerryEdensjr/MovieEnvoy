@@ -17,9 +17,25 @@ final class MovieDetailViewModel: NSObject {
 
   // MARK: - properties
   weak var delegate: MovieDetailViewModelDelegate?
+  var movieDetail: MovieDetail?
+  private var movieID: Int?
 
   // MARK: - configuration
-  func configure(with movie: MovieSummary) {
+  func configure(with movieSummary: MovieSummary) {
+    movieID = movieSummary.id
+    APIService.shared.getMovieDetails(for: movieID!) { [weak self] (result) in
+      guard let self = self else { return }
+      
+      switch result {
+      case .success(let movieDetail):
+        self.movieDetail = movieDetail
+        self.delegate?.didUpdateMovieDetail()
+
+      case .failure(let error):
+        print(items: error.localizedDescription)
+        self.delegate?.didUpdateMovieDetail()
+      }
+    }
   }
 
 }
@@ -33,4 +49,15 @@ extension MovieDetailViewModel: UITableViewDataSource {
     fatalError()
   }
 
+}
+
+extension MovieDetailViewModel: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: MovieDetailHeaderView.identifier) as? MovieDetailHeaderView else {
+      fatalError()
+    }
+
+    view.configure(with: movieDetail)
+    return view
+  }
 }
