@@ -9,7 +9,7 @@ class MovieDetailViewController: UIViewController, Storyboardable {
 
   // MARK: - properties
   var coordinator: MovieDetailCoordinator?
-  private var movie: Movie?
+  private var movie: MovieSummary?
 
   // MARK: - overrides
   override func viewWillAppear(_ animated: Bool) {
@@ -20,7 +20,7 @@ class MovieDetailViewController: UIViewController, Storyboardable {
   }
 
   // MARK: - configuration
-  func configure(with movie: Movie) {
+  func configure(with movie: MovieSummary) {
     self.movie = movie
       
     title = movie.title

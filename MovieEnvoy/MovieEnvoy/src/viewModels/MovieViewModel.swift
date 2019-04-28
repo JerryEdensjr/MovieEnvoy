@@ -7,7 +7,7 @@ import UIKit
 
 final class MovieViewModel: NSObject {
 
-  private(set) var movies = [Movie]()
+  private(set) var movies = [MovieSummary]()
 
   private var currentPage: Int = 0
   private var totalPages: Int = 0
@@ -20,14 +20,14 @@ final class MovieViewModel: NSObject {
     movies.append(contentsOf: responseModel.results)
   }
 
-  private func configure(with response: (movies: [Movie], page: Int, totalPages: Int, totalResults: Int)) {
+  private func configure(with response: (movies: [MovieSummary], page: Int, totalPages: Int, totalResults: Int)) {
     self.movies.append(contentsOf: response.movies)
     self.currentPage = response.page
     self.totalPages = response.totalPages
     self.totalResults = response.totalResults
   }
 
-  private func configure(with movies: [Movie]) {
+  private func configure(with movies: [MovieSummary]) {
     self.movies.append(contentsOf: movies)
   }
 
@@ -76,7 +76,7 @@ extension MovieViewModel {
 
   private func getMovies(with endpoint: APIEndpoint, completion: @escaping () -> Void) {
 
-    func handleResult(result: APIServiceResult<[Movie]>) {
+    func handleResult(result: APIServiceResult<[MovieSummary]>) {
       switch result {
       case let .success(movies):
         configure(with: movies)
@@ -97,7 +97,7 @@ extension MovieViewModel {
 
     case .popular:
       if currentPage == 0 {
-        movies = [Movie]()
+        movies = [MovieSummary]()
       }
       currentPage += 1
 
@@ -119,7 +119,7 @@ extension MovieViewModel {
 
     case .topRated:
       if currentPage == 0 {
-        movies = [Movie]()
+        movies = [MovieSummary]()
       }
       currentPage += 1
 
@@ -148,7 +148,7 @@ extension MovieViewModel {
   }
 
   private func reset() {
-    movies = [Movie]()
+    movies = [MovieSummary]()
     currentPage = 0
   }
 }

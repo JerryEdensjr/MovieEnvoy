@@ -14,7 +14,7 @@ final class MovieDetailCoordinator: Coordinator {
   var children = [Coordinator]()
   var navigationController: UINavigationController
 
-  var movie: Movie?
+  var movie: MovieSummary?
 
   init(navigationController: UINavigationController) {
     self.navigationController = navigationController

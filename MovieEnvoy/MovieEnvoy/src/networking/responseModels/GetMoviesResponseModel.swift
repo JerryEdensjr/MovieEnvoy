@@ -7,6 +7,6 @@
 //
 
 struct GetMovieResponseModel: Decodable {
-  let results: [Movie]
+  let results: [MovieSummary]
 
 }

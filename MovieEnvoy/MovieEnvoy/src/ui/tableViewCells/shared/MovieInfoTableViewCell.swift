@@ -40,7 +40,7 @@ class MovieInfoTableViewCell: UITableViewCell {
   }
 
   // MARK: - configureation
-  func configure(with movie: Movie) {
+  func configure(with movie: MovieSummary) {
     movieTitle.text = movie.title
     releaseDate.text = movie.releaseDate
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Movie: Codable {
+class MovieSummary: Codable {
 
   let id: Int
   let title: String
@@ -20,7 +20,7 @@ class Movie: Codable {
 
 }
 
-extension Movie: CustomDebugStringConvertible {
+extension MovieSummary: CustomDebugStringConvertible {
   var debugDescription: String {
     return """
     Movie:

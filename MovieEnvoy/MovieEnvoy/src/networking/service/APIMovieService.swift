@@ -12,12 +12,12 @@ private let movieQueue = DispatchQueue(label: "MovieEnvoyMovieQueue", qos: .user
 
 extension APIService: MovieService {
 
-  func getMoviesNowPlaying(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
+  func getMoviesNowPlaying(completion: @escaping (APIServiceResult<[MovieSummary]>) -> Void) {
     let request = Alamofire.request(MovieRouter.getMoviesNowPlaying)
     handleRequest(with: request, completion: completion)
   }
 
-  func getPopularMovies(page: Int, completion: @escaping (_ reult: APIServiceResult<[Movie]>, _ page: Int, _ totalPages: Int, _ totalResults: Int) -> Void) {
+  func getPopularMovies(page: Int, completion: @escaping (_ reult: APIServiceResult<[MovieSummary]>, _ page: Int, _ totalPages: Int, _ totalResults: Int) -> Void) {
     let request = Alamofire.request(MovieRouter.getPopularMovies(page: page))
 
     request.responseData(queue: movieQueue) { [weak self] requestResponse in
@@ -38,7 +38,7 @@ extension APIService: MovieService {
     }
   }
 
-  func getTopRatedMovies(page: Int, completion: @escaping (APIServiceResult<[Movie]>, _ page: Int, _ totalPages: Int, _ totalResults: Int) -> Void) {
+  func getTopRatedMovies(page: Int, completion: @escaping (APIServiceResult<[MovieSummary]>, _ page: Int, _ totalPages: Int, _ totalResults: Int) -> Void) {
     let request = Alamofire.request(MovieRouter.getTopRatedMovies(page: page))
 
     request.responseData(queue: movieQueue) { [weak self] requestResponse in
@@ -59,15 +59,19 @@ extension APIService: MovieService {
     }
   }
 
-  func getUpcomingMovies(completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
+  func getUpcomingMovies(completion: @escaping (APIServiceResult<[MovieSummary]>) -> Void) {
     let request = Alamofire.request(MovieRouter.getUpcomingMovies)
     handleRequest(with: request, completion: completion)
+  }
+
+  func getMovieDetails(for movieID: Int, completion: @escaping (APIServiceResult<MovieDetail>) -> Void) {
+//    let request = Alamofire.request(MovieRouter.)
   }
 
 }
 
 private extension APIService {
-  private func handleRequest(with request: DataRequest, completion: @escaping (APIServiceResult<[Movie]>) -> Void) {
+  private func handleRequest(with request: DataRequest, completion: @escaping (APIServiceResult<[MovieSummary]>) -> Void) {
     request.responseData(queue: movieQueue) { [weak self] requestResponse in
         guard let self = self else { return }
 
