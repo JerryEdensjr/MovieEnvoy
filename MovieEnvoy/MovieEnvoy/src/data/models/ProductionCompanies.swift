@@ -10,6 +10,6 @@ struct ProductionCompanies: Codable {
   let id: Int
   let logoPath: String
   let name: String
-  let originCompany: String
+  let originCountry: String
 
 }

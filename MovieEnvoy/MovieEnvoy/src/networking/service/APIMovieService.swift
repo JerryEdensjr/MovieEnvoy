@@ -13,12 +13,12 @@ private let movieQueue = DispatchQueue(label: "MovieEnvoyMovieQueue", qos: .user
 extension APIService: MovieService {
 
   func getMoviesNowPlaying(completion: @escaping (APIServiceResult<[MovieSummary]>) -> Void) {
-    let request = Alamofire.request(MovieRouter.getMoviesNowPlaying)
+    let request = Alamofire.request(MovieRouter.GetMoviesNowPlaying)
     handleRequest(with: request, completion: completion)
   }
 
   func getPopularMovies(page: Int, completion: @escaping (_ reult: APIServiceResult<[MovieSummary]>, _ page: Int, _ totalPages: Int, _ totalResults: Int) -> Void) {
-    let request = Alamofire.request(MovieRouter.getPopularMovies(page: page))
+    let request = Alamofire.request(MovieRouter.GetPopularMovies(page: page))
 
     request.responseData(queue: movieQueue) { [weak self] requestResponse in
         guard let self = self else { return }
@@ -39,7 +39,7 @@ extension APIService: MovieService {
   }
 
   func getTopRatedMovies(page: Int, completion: @escaping (APIServiceResult<[MovieSummary]>, _ page: Int, _ totalPages: Int, _ totalResults: Int) -> Void) {
-    let request = Alamofire.request(MovieRouter.getTopRatedMovies(page: page))
+    let request = Alamofire.request(MovieRouter.GetTopRatedMovies(page: page))
 
     request.responseData(queue: movieQueue) { [weak self] requestResponse in
         guard let self = self else { return }
@@ -60,12 +60,31 @@ extension APIService: MovieService {
   }
 
   func getUpcomingMovies(completion: @escaping (APIServiceResult<[MovieSummary]>) -> Void) {
-    let request = Alamofire.request(MovieRouter.getUpcomingMovies)
+    let request = Alamofire.request(MovieRouter.GetUpcomingMovies)
     handleRequest(with: request, completion: completion)
   }
 
   func getMovieDetails(for movieID: Int, completion: @escaping (APIServiceResult<MovieDetail>) -> Void) {
-//    let request = Alamofire.request(MovieRouter.)
+    let request = Alamofire.request(MovieRouter.GetMovieDetails(movieID: movieID))
+
+    request.responseData(queue: movieQueue) { [weak self] requestResponse in
+      guard let self = self else { return }
+
+      do {
+        let data = requestResponse.data
+        let response = try self.getResponse(from: data, responseType: GetMoviesDetailResponse.self)
+
+        let movieDetail = MovieDetail(with: response)
+        DispatchQueue.main.async {
+          completion(.success(movieDetail))
+        }
+
+      } catch {
+        print(items: error.localizedDescription)
+        completion(.failure(error))
+      }
+
+    }
   }
 
 }

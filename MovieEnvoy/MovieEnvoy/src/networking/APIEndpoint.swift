@@ -11,6 +11,7 @@ enum APIEndpoint: String {
   case popular = "/3/movie/popular"
   case topRated = "/3/movie/top_rated"
   case upcoming = "/3/movie/upcoming"
+  case movieDetails = "/3/movie/{0}"
 
   var endpoint: String {
     return rawValue

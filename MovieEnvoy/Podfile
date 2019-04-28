@@ -13,7 +13,10 @@ target 'MovieEnvoy' do
 
   target 'MovieEnvoyTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Alamofire', '~> 4.8'
+    pod 'AlamofireImage', '~>3.5'
+    pod "PromiseKit", "~> 6.0"
+    pod 'PromiseKit/Alamofire', '~> 6.0'
   end
 
   target 'MovieEnvoyUITests' do

@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "63FF9D4D219CBA9D00C3ADF6"
+               BlueprintIdentifier = "634D282D2275F15F0076ACB9"
                BuildableName = "MovieEnvoyTests.xctest"
                BlueprintName = "MovieEnvoyTests"
                ReferencedContainer = "container:MovieEnvoy.xcodeproj">

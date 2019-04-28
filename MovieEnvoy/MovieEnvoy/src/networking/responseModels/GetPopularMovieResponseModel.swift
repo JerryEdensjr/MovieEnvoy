@@ -9,4 +9,10 @@ struct GetPopularMovieResponseModel: Codable {
   let totalPages: Int
   let totalResults: Int
   let results: [MovieSummary]
+
+  // error support
+  let statusCode: Int?
+  let statusMessage: String?
+  let errors: [String]?
+
 }

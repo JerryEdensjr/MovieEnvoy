@@ -144,6 +144,9 @@ extension MovieViewModel {
       APIService.shared.getUpcomingMovies { (result) in
         handleResult(result: result)
       }
+
+    default:
+      break
     }
   }
 
@@ -151,6 +154,7 @@ extension MovieViewModel {
     movies = [MovieSummary]()
     currentPage = 0
   }
+
 }
 
 extension MovieViewModel: UITableViewDataSource {
