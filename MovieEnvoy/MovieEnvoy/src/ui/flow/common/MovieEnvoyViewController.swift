@@ -27,11 +27,15 @@ class MovieEnvoyViewController: UIViewController {
   // MARK: overrides
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    setupTableview()
+    setUp()
   }
 
   // MARK: setup
-  private func setupTableview() {
+  private func setUp() {
+    setUupTableview()
+  }
+
+  private func setUupTableview() {
     view.addSubview(self.tableView)
 
     tableView.translatesAutoresizingMaskIntoConstraints = false

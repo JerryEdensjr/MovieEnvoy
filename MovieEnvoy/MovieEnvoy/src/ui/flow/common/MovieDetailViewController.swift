@@ -16,6 +16,7 @@ class MovieDetailViewController: UIViewController, Storyboardable {
     super.viewWillAppear(animated)
 
     navigationController?.setNavigationBarHidden(false, animated: true)
+    hideBackButtonText()
   }
 
   // MARK: - configuration
