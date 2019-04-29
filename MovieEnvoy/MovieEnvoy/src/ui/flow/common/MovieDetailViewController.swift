@@ -2,34 +2,38 @@
 //  MovieDetailViewController.swift
 //  MovieEnvoy
 //
+//  Created by Jerry Edens on 4/28/19.
+//  Copyright © 2019 Edens R&D. All rights reserved.
+//
 
 import UIKit
 
-class MovieDetailViewController: UIViewController, Storyboardable {
+class MovieDetailViewController: UIViewController {
 
   // MARK: - outlets
-  @IBOutlet weak var tableView: UITableView!
-  
+  @IBOutlet private var tableView: UITableView!
+
   // MARK: - properties
   var coordinator: MovieDetailCoordinator?
-  private var viewModel = MovieDetailViewModel()
+
   private var movieSummary: MovieSummary?
+  private var viewModel = MovieDetailViewModel()
 
   // MARK: - overrides
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
     navigationController?.setNavigationBarHidden(false, animated: true)
-    hideBackButtonText()
+    setUpTableView()
+    setUpViewModel()
   }
 
   // MARK: - configuration
   func configure(with movieSummary: MovieSummary) {
     self.movieSummary = movieSummary
-    viewModel.configure(with: movieSummary)
     
-    title = movieSummary.title
-    setUpTableView()
+    if let movieSummary = self.movieSummary {
+      viewModel.configure(with: movieSummary)
+    }
   }
 
 }
@@ -37,14 +41,30 @@ class MovieDetailViewController: UIViewController, Storyboardable {
 private extension MovieDetailViewController {
   func setUpTableView() {
     tableView.separatorStyle = .none
-    tableView.dataSource = viewModel
     tableView.delegate = viewModel
+    tableView.dataSource = viewModel
+    tableView.estimatedSectionHeaderHeight = 678.0
+    tableView.rowHeight = UITableView.automaticDimension
+    tableView.sectionHeaderHeight = UITableView.automaticDimension
     registerNibs()
   }
 
   func registerNibs() {
     tableView.register(MovieDetailHeaderView.nib,
-                       forCellReuseIdentifier: MovieDetailHeaderView.identifier)
+                       forHeaderFooterViewReuseIdentifier: MovieDetailHeaderView.identifier)
+  }
+
+  func setUpViewModel() {
+    viewModel.delegate = self
   }
 
 }
+
+extension MovieDetailViewController: MovieDetailViewModelDelegate {
+  func didUpdateMovieDetail() {
+    tableView.reloadData()
+  }
+
+}
+
+extension MovieDetailViewController: Storyboardable {}

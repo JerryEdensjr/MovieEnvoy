@@ -6,9 +6,9 @@
 //  Copyright © 2019 Edens R&D. All rights reserved.
 //
 
-struct ProductionCompanies: Codable {
+struct ProductionCompany: Codable {
   let id: Int
-  let logoPath: String
+  let logoPath: String?
   let name: String
   let originCountry: String
 

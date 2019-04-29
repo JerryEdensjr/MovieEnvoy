@@ -11,4 +11,12 @@ final class MovieCollection: Codable {
   let name: String
   let posterPath: String
   let backdropPath: String
+
+  init() {
+    id = 0
+    name = ""
+    posterPath = ""
+    backdropPath = ""
+  }
+
 }

@@ -39,6 +39,7 @@ extension NowPlayingViewController {
         fatalError("No movie data available for \(indexPath.row)")
     }
 
+    // TODO: move to a coordiator
     let movieDetailCoordinator = MovieDetailCoordinator(navigationController: navController)
     movieDetailCoordinator.parentCoordinator = coordinator
     movieDetailCoordinator.movie = movie

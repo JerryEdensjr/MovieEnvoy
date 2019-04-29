@@ -18,22 +18,26 @@ final class MovieDetailViewModel: NSObject {
   // MARK: - properties
   weak var delegate: MovieDetailViewModelDelegate?
   var movieDetail: MovieDetail?
-  private var movieID: Int?
+  private var movieSummary: MovieSummary?
 
   // MARK: - configuration
   func configure(with movieSummary: MovieSummary) {
-    movieID = movieSummary.id
-    APIService.shared.getMovieDetails(for: movieID!) { [weak self] (result) in
+    self.movieSummary = movieSummary
+    APIService.shared.getMovieDetails(for: movieSummary.id) { [weak self] (result) in
       guard let self = self else { return }
       
       switch result {
       case .success(let movieDetail):
         self.movieDetail = movieDetail
-        self.delegate?.didUpdateMovieDetail()
+        DispatchQueue.main.async {
+          self.delegate?.didUpdateMovieDetail()
+        }
 
       case .failure(let error):
         print(items: error.localizedDescription)
-        self.delegate?.didUpdateMovieDetail()
+        DispatchQueue.main.async {
+          self.delegate?.didUpdateMovieDetail()
+        }
       }
     }
   }
@@ -54,10 +58,21 @@ extension MovieDetailViewModel: UITableViewDataSource {
 extension MovieDetailViewModel: UITableViewDelegate {
   func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: MovieDetailHeaderView.identifier) as? MovieDetailHeaderView else {
-      fatalError()
+      let view = UIView(); view.isHidden = true; view.frame = CGRect.zero; return view
     }
 
-    view.configure(with: movieDetail)
+    if let movieDetail = self.movieDetail {
+      view.update(with: movieDetail)
+    } else if let movieSummary = self.movieSummary {
+      view.configure(with: movieSummary)
+    }
+
     return view
   }
+
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return UITableView.automaticDimension
+  }
+
 }
+
