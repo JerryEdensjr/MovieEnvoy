@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovieSummary: Codable {
+class MovieSummary: Decodable {
 
   let id: Int
   let title: String

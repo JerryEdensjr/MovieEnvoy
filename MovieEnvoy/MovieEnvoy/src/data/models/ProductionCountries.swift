@@ -6,7 +6,7 @@
 //  Copyright © 2019 Edens R&D. All rights reserved.
 //
 
-struct ProductionCountries: Codable {
+struct ProductionCountries: Decodable {
   let iso31661: String
   let name: String
 

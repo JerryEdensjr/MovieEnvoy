@@ -3,7 +3,7 @@
 //  MovieEnvoy
 //
 
-struct GetTopRatedMoviesResponseModel: Codable {
+struct GetTopRatedMoviesResponseModel: Decodable {
 
   let page: Int
   let totalPages: Int

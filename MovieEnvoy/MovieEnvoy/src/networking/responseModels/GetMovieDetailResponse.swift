@@ -6,7 +6,7 @@
 //  Copyright © 2019 Edens R&D. All rights reserved.
 //
 
-struct GetMoviesDetailResponse: Codable {
+struct GetMoviesDetailResponse: Decodable {
   let id: Int
   let imdbId: String
 

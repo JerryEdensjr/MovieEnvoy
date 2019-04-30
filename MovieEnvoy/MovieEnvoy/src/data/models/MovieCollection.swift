@@ -6,7 +6,7 @@
 //  Copyright © 2019 Edens R&D. All rights reserved.
 //
 
-final class MovieCollection: Codable {
+final class MovieCollection: Decodable {
   let id: Int
   let name: String
   let posterPath: String

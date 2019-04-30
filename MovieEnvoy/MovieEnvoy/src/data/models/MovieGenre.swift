@@ -6,7 +6,7 @@
 //  Copyright © 2019 Edens R&D. All rights reserved.
 //
 
-final class MovieGenre: Codable {
+final class MovieGenre: Decodable {
   let id: Int
   let name: String
 }
