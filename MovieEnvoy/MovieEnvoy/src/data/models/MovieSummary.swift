@@ -8,9 +8,11 @@
 
 import Foundation
 
-class MovieSummary: Decodable {
+final class MovieSummary: Decodable {
 
   let id: Int
+  let adult: Bool
+  let backdropPath: String
   let title: String
   let overview: String
   let posterPath: String

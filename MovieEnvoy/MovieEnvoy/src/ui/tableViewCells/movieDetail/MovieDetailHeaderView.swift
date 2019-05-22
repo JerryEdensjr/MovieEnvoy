@@ -11,19 +11,20 @@ import UIKit
 class MovieDetailHeaderView: UITableViewHeaderFooterView, Nibable {
 
   @IBOutlet weak var movieTitleLabel: UILabel!
-  @IBOutlet weak var posterImageView: UIImageView!
+  @IBOutlet weak var backdropImageView: UIImageView!
 
   func configure(with moviewSummary: MovieSummary) {
     movieTitleLabel.text = moviewSummary.title
-    posterImageView.download(url: APIService.context.imageBaseURLString + moviewSummary.posterPath)
+
+    backdropImageView.download(url: MovieDBContext.shared.getBackdropURL(for: .BackdropLarge, for: moviewSummary.backdropPath))
   }
 
   func update(with movieDetail: MovieDetail) {
 
     let attributedString = NSAttributedString(string: "\(movieDetail.title) (\(movieDetail.releaseYear))")
-
     movieTitleLabel.attributedText = attributedString
-    posterImageView.download(url: APIService.context.imageBaseURLString + movieDetail.posterPath)
+
+    backdropImageView.download(url: MovieDBContext.shared.getBackdropURL(for: .BackdropLarge, for: movieDetail.backdropPath))
   }
 
 }

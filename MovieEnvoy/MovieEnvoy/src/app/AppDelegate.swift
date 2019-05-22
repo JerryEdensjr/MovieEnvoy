@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
     setupAppearances()
+    loadMovieDBConfig()
 
     return true
   }
@@ -31,6 +32,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   private func setupAppearances() {
     let appearance = UINavigationBar.appearance()
     appearance.tintColor = .black
+  }
+
+  private func loadMovieDBConfig() {
+    MovieDBContext.shared.getMovieDBCofig()
   }
 
 }

@@ -7,6 +7,7 @@
 //
 
 enum APIEndpoint: String {
+  case configuration = "/3/configuration"
   case nowPlaying = "/3/movie/now_playing"
   case popular = "/3/movie/popular"
   case topRated = "/3/movie/top_rated"
@@ -15,10 +16,6 @@ enum APIEndpoint: String {
 
   var endpoint: String {
     return rawValue
-  }
-
-  static func endpoint(with path: String) -> String {
-    return "endpoint(with: \(path))"
   }
 
 }

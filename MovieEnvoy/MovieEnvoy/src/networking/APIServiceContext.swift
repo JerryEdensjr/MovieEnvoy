@@ -20,15 +20,15 @@ public enum APIServiceContext {
     }
   }
 
-  public var imageBaseURLString: String {
-    switch self {
-    case .production:
-      return TMDB_IMAGE_URL
-    case .staging:
-      return TMDB_IMAGE_URL
-    }
-  }
-
+//  public var imageBaseURLString: String {
+//    switch self {
+//    case .production:
+//      return TMDB_IMAGE_URL
+//    case .staging:
+//      return TMDB_IMAGE_URL
+//    }
+//  }
+//
   public var theMovieDBAPIKey: String {
     switch self {
     case .production:

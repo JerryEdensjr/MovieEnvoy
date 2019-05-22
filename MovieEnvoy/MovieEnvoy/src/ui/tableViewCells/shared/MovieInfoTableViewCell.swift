@@ -50,7 +50,12 @@ class MovieInfoTableViewCell: UITableViewCell {
     paragraphStyle.lineBreakMode = .byTruncatingTail
     overview.attributedText = NSAttributedString(string: movie.overview, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
 
-    posterImageView.af_setImage(withURL: URL(string: APIService.context.imageBaseURLString + movie.posterPath)!)
+    guard let path = MovieDBContext.shared.getPosterURL(for: .PosterMedium, for: movie.posterPath),
+      let url = URL(string: path) else {
+        return
+    }
+
+    posterImageView.af_setImage(withURL: url)
   }
 
   // MARK: tableviewcell support

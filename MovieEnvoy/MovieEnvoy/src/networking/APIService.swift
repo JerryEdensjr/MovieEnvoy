@@ -15,7 +15,7 @@ public class APIService {
   static var context: APIServiceContext!
   static let shared = APIService()
 
-  private enum Defaults {
+  enum Defaults {
     static let environment: APIServiceContext = {
       #if AppStore
       return APIServiceContext(with: "production")

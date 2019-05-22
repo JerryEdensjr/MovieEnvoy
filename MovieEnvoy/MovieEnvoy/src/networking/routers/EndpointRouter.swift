@@ -27,15 +27,17 @@ enum APIVersion {
     }
   }
 
-  var imageBaseURL: String {
-    guard let context = APIService.context else {
-      fatalError("Context is not set.")
-    }
-    switch self {
-    case .v1:
-      return context.imageBaseURLString
-    }
-  }
+//  var imageBaseURL: String {
+//    guard let context = APIService.context else {
+//      fatalError("Context is not set.")
+//    }
+//
+//    if let url = MovieDBContext.shared.getBaseURL(for: .v1) {
+//      return url
+//    }
+//
+//    return ""
+//  }
 
 }
 

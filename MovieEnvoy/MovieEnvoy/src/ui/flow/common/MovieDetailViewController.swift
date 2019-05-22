@@ -43,7 +43,7 @@ private extension MovieDetailViewController {
     tableView.separatorStyle = .none
     tableView.delegate = viewModel
     tableView.dataSource = viewModel
-    tableView.estimatedSectionHeaderHeight = 678.0
+    tableView.estimatedSectionHeaderHeight = 714.0
     tableView.rowHeight = UITableView.automaticDimension
     tableView.sectionHeaderHeight = UITableView.automaticDimension
     registerNibs()
