@@ -42,7 +42,7 @@ class MovieInfoTableViewCell: UITableViewCell {
   // MARK: - configureation
   func configure(with movie: MovieSummary) {
     movieTitle.text = movie.title
-    releaseDate.text = movie.releaseDate
+    releaseDate.text = "Release Date:\n\(movie.releaseDate)"
 
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.lineSpacing = 4
