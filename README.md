@@ -39,7 +39,8 @@ This app will be written using 5.0.
 
 #### Useful Links
 
-*  https://www.themoviedb.org/settings/api
+*  https://www.themoviedb.org/settings/api  
+*  https://developers.themoviedb.org/3/configuration/get-api-configuration  
 *  https://www.themoviedb.org/talk/5beca3090e0a2632810057c3?page=1#5beca3090e0a2632810057c5
 *  Documentation: https://www.themoviedb.org/documentation/api
 *  Support forum: https://www.themoviedb.org/talk/category/5047958519c29526b50017d6

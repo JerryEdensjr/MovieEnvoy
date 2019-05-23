@@ -6,6 +6,8 @@
 //  Copyright © 2019 Edens R&D. All rights reserved.
 //
 
+import Foundation
+
 enum LogoSize: Int {
   case LogoThumbnailSmall = 0
   case LogoThumbnailLarge
@@ -33,6 +35,7 @@ enum PosterSize: Int {
   case PosterOriginal
 }
 
+let movieDBConfigUpdateNotification = Notification.Name("MovieDBConfigUpdateNotification")
 
 final class MovieDBContext {
   static let shared = MovieDBContext()
@@ -47,14 +50,15 @@ final class MovieDBContext {
       switch result {
       case .success(let movieDBConfig):
         self.movieDBConfig = movieDBConfig
+        NotificationCenter.default.post(name: movieDBConfigUpdateNotification, object: nil)
       case .failure(let error):
         print(items: error.localizedDescription)
       }
     }
   }
 
-  func getBaseURL(for apiVersion: APIVersion) -> String? {
-    guard let movieDBConfig = self.movieDBConfig else { return nil }
+  func getBaseURL(for apiVersion: APIVersion) -> String {
+    guard let movieDBConfig = self.movieDBConfig else { return "error" }
 
     switch apiVersion {
     case .v1:
@@ -62,7 +66,7 @@ final class MovieDBContext {
       case .production:
         return movieDBConfig.secureBaseUrl
       case .staging:
-        return movieDBConfig.baseUrl
+        return movieDBConfig.secureBaseUrl
       }
     }
   }
@@ -71,21 +75,21 @@ final class MovieDBContext {
     guard let movieDBConfig = self.movieDBConfig,
       let size = movieDBConfig.backdropSizes[safe: size.rawValue] else { return nil }
 
-    return String("\(getBaseURL(for: .v1))\(size)")
+    return String("\(getBaseURL(for: .v1))\(size)\(backdropPath)")
   }
 
   func getLogoURL(for size: LogoSize, for logoPath: String) -> String? {
     guard let movieDBConfig = self.movieDBConfig,
       let size = movieDBConfig.logoSizes[safe: size.rawValue] else { return nil }
 
-    return String("\(getBaseURL(for: .v1))\(size)")
+    return String("\(getBaseURL(for: .v1))\(size)\(logoPath)")
   }
 
   func getPosterURL(for size: PosterSize, for posterPath: String) -> String? {
     guard let movieDBConfig = self.movieDBConfig,
       let size = movieDBConfig.posterSizes[safe: size.rawValue] else { return nil }
 
-    return String("\(getBaseURL(for: .v1))\(size)")
+    return String("\(getBaseURL(for: .v1))\(size)\(posterPath)")
   }
 
 }

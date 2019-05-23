@@ -35,6 +35,14 @@ class MovieEnvoyViewController: UIViewController {
     setUupTableview()
   }
 
+  private func setUpNotificationHandlers() {
+    NotificationCenter.default.addObserver(forName: movieDBConfigUpdateNotification, object: nil, queue: nil) { (notification) in
+      DispatchQueue.main.async { [unowned self] in
+        self.tableView.reloadData()
+      }
+    }
+  }
+
   private func setUupTableview() {
     view.addSubview(self.tableView)
 

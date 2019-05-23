@@ -362,11 +362,11 @@
 				6374F302225F77B6006987E5 /* APIError.swift */,
 				6374F304225F789C006987E5 /* APIService.swift */,
 				6374F306225F78EC006987E5 /* APIServiceContext.swift */,
+				631F96E22295934F00B8FEBA /* MovieDBContext.swift */,
 				6374F2FC225F7649006987E5 /* protocols */,
 				6374F2FD225F7651006987E5 /* responseModels */,
 				6374F2FE225F7673006987E5 /* routers */,
 				6374F2FF225F767F006987E5 /* service */,
-				631F96E22295934F00B8FEBA /* MovieDBContext.swift */,
 			);
 			path = networking;
 			sourceTree = "<group>";
