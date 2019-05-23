@@ -25,7 +25,7 @@ class NowPlayingViewController: MovieEnvoyViewController, Storyboardable {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     view.bringSubviewToFront(titlebar)
-    navigationController?.setNavigationBarHidden(true, animated: false)
+    navigationController?.setNavigationBarHidden(true, animated: true)
     
     getMovies()
   }

@@ -3,7 +3,7 @@
 //  MovieEnvoy
 //
 //  Created by Jerry Edens on 11/14/18.
-//  Copyright © 2018 Edens R&D. All rights reserved.
+//  Copyright © 2018-2019 Edens R&D. All rights reserved.
 //
 
 import UIKit
@@ -30,8 +30,13 @@ class MovieEnvoyViewController: UIViewController {
     setUp()
   }
 
+  override var prefersStatusBarHidden: Bool {
+    return false
+  }
+
   // MARK: setup
   private func setUp() {
+    view.backgroundColor = .magenta
     setUupTableview()
   }
 

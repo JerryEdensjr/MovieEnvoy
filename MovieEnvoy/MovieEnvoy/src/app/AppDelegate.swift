@@ -31,7 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   private func setupAppearances() {
     let appearance = UINavigationBar.appearance()
-    appearance.tintColor = .black
+    appearance.barTintColor = .black
+    appearance.tintColor = UIColor(named: "globalTint")
+    appearance.isTranslucent = false
+
+    let tabbarAppearance = UITabBar.appearance()
+    tabbarAppearance.barTintColor = .black
+    tabbarAppearance.tintColor = UIColor(named: "globalTint")
+    
   }
 
   private func loadMovieDBConfig() {

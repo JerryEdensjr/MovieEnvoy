@@ -22,9 +22,13 @@ class MovieDetailViewController: UIViewController {
   // MARK: - overrides
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    navigationController?.setNavigationBarHidden(false, animated: true)
+    setUpNavigationBar()
     setUpTableView()
     setUpViewModel()
+  }
+
+  override var prefersStatusBarHidden: Bool {
+    return true
   }
 
   // MARK: - configuration
@@ -58,6 +62,10 @@ private extension MovieDetailViewController {
     viewModel.delegate = self
   }
 
+  func setUpNavigationBar() {
+    navigationController?.setNavigationBarHidden(false, animated: true)
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+  }
 }
 
 extension MovieDetailViewController: MovieDetailViewModelDelegate {
