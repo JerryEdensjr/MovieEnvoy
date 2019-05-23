@@ -57,6 +57,7 @@ class MovieEnvoyViewController: UIViewController {
     tableView.contentInset = UIEdgeInsets(top: Constants.topInset, left: 0.0, bottom: 0.0, right: 0.0)
 
     tableView.register(UINib(nibName: "MovieInfoTableViewCell", bundle: nil), forCellReuseIdentifier: MovieInfoTableViewCell.cellIdentifier())
+    
     tableView.dataSource = viewModel
     tableView.delegate = self
   }
@@ -65,10 +66,8 @@ class MovieEnvoyViewController: UIViewController {
 
 extension MovieEnvoyViewController: UITableViewDelegate {
   // subclasses should override these funcs
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-  }
+  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {}
 
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-  }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
 
 }
