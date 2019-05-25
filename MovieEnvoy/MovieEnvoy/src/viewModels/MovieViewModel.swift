@@ -17,7 +17,9 @@ final class MovieViewModel: NSObject {
     currentPage = responseModel.page
     totalPages = responseModel.totalPages
     totalResults = responseModel.totalResults
-    movies.append(contentsOf: responseModel.results)
+    if let moreMovies = responseModel.results {
+        movies.append(contentsOf: moreMovies)
+    }
   }
 
   private func configure(with response: (movies: [MovieSummary], page: Int, totalPages: Int, totalResults: Int)) {

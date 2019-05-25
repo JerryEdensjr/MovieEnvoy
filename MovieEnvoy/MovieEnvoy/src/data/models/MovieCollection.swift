@@ -8,15 +8,22 @@
 
 final class MovieCollection: Decodable {
   let id: Int
-  let name: String
-  let posterPath: String
-  let backdropPath: String
+  let name: String?
+  let posterPath: String?
+  let backdropPath: String?
 
-  init() {
-    id = 0
-    name = ""
-    posterPath = ""
-    backdropPath = ""
+    init() {
+        id = 0
+        name = nil
+        posterPath = nil
+        backdropPath = nil
+    }
+
+    init(from responseModel: GetMoviesDetailResponse) {
+    id = responseModel.belongsToCollection?.id ?? 0
+    name = responseModel.belongsToCollection?.name
+    posterPath = responseModel.belongsToCollection?.posterPath
+    backdropPath = responseModel.belongsToCollection?.backdropPath
   }
 
 }
