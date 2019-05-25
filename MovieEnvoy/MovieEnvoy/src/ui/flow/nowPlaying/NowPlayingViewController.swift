@@ -30,6 +30,11 @@ class NowPlayingViewController: MovieEnvoyViewController, Storyboardable {
     getMovies()
   }
 
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+  }
+
 }
 
 extension NowPlayingViewController {

@@ -20,7 +20,8 @@ class MovieDetailHeaderView: UITableViewHeaderFooterView, Nibable {
   }
 
   func configure(with moviewSummary: MovieSummary) {
-    backdropImageView.download(url: MovieDBContext.shared.getBackdropURL(for: .BackdropLarge, for: moviewSummary.backdropPath))
+    guard let backdropPath = moviewSummary.backdropPath else { return }
+    backdropImageView.download(url: MovieDBContext.shared.getBackdropURL(for: .BackdropLarge, for: backdropPath))
   }
 
   func update(with movieDetail: MovieDetail) {

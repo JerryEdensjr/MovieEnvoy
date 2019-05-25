@@ -42,15 +42,17 @@ class MovieInfoTableViewCell: UITableViewCell {
   // MARK: - configureation
   func configure(with movie: MovieSummary) {
     movieTitle.text = movie.title
-    releaseDate.text = "Release Date:\n\(movie.releaseDate)"
+    releaseDate.text = "Release Date:\n\(movie.releaseDate  ?? "Unknown")"
 
     let paragraphStyle = NSMutableParagraphStyle()
     paragraphStyle.lineSpacing = 4
     paragraphStyle.alignment = .left
     paragraphStyle.lineBreakMode = .byTruncatingTail
-    overview.attributedText = NSAttributedString(string: movie.overview, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+    overview.attributedText = NSAttributedString(string: movie.overview ?? "", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
 
-    guard let path = MovieDBContext.shared.getPosterURL(for: .PosterMedium, for: movie.posterPath),
+    guard let posterPath = movie.posterPath,
+        let path = MovieDBContext.shared.getPosterURL(for: .PosterMedium, for: posterPath),
+
       let url = URL(string: path) else {
         return
     }

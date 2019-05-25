@@ -11,14 +11,14 @@ import Foundation
 final class MovieSummary: Decodable {
 
   let id: Int
-  let adult: Bool
-  let backdropPath: String
-  let title: String
-  let overview: String
-  let posterPath: String
-  let releaseDate: String
-  let voteAverage: Double
-  let voteCount: Int
+  let adult: Bool?
+  let backdropPath: String?
+  let title: String?
+  let overview: String?
+  let posterPath: String?
+  let releaseDate: String?
+  let voteAverage: Double?
+  let voteCount: Int?
 
 }
 
@@ -27,7 +27,7 @@ extension MovieSummary: CustomDebugStringConvertible {
     return """
     Movie:
       id: \(id)
-      title: \(title)
+      title: \(title ?? "No Title")
     """
   }
 

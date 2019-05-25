@@ -48,8 +48,8 @@ public class APIService {
       return response
     } catch let error {
       print(items: error, String(data: data, encoding: .utf8) as Any)
-      //#warning("REMOVE DEBUG CODE")
-      //raise(SIGINT)
+      #warning("REMOVE DEBUG CODE")
+      raise(SIGINT)
       throw APIError.decodeError
     }
   }

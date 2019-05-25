@@ -64,7 +64,7 @@ private extension MovieDetailViewController {
 
   func setUpNavigationBar() {
     navigationController?.setNavigationBarHidden(false, animated: true)
-    navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+    title = "Movie Detail"
   }
 }
 

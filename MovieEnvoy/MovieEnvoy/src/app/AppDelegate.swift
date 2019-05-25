@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     appearance.barTintColor = .black
     appearance.tintColor = UIColor(named: "globalTint")
     appearance.isTranslucent = false
+    appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
 
     let tabbarAppearance = UITabBar.appearance()
     tabbarAppearance.barTintColor = .black
