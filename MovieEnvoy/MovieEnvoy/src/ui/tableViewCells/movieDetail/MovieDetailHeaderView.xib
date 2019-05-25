@@ -24,19 +24,22 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iIR-rf-46y" userLabel="content view">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="714"/>
                     <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="254" verticalCompressionResistancePriority="1000" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAu-q5-HhT">
+                            <rect key="frame" x="8" y="8" width="398" height="47"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="47" id="kFJ-rk-pfL"/>
+                            </constraints>
+                            <attributedString key="attributedText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Ty-OA-rGQ">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="228"/>
+                            <rect key="frame" x="0.0" y="55" width="414" height="228"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="0Ty-OA-rGQ" secondAttribute="height" multiplier="1.81609" id="PCX-L9-EfM"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="254" verticalCompressionResistancePriority="1000" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAu-q5-HhT">
-                            <rect key="frame" x="8" y="8" width="398" height="0.0"/>
-                            <attributedString key="attributedText"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <view contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="rf3-DR-Awm" userLabel="rating view">
-                            <rect key="frame" x="0.0" y="236" width="414" height="43.5"/>
+                            <rect key="frame" x="0.0" y="291" width="414" height="43.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Gbx-g7-FFJ">
                                     <rect key="frame" x="8" y="8" width="398" height="27.5"/>
@@ -98,7 +101,7 @@
                     <constraints>
                         <constraint firstItem="zAu-q5-HhT" firstAttribute="top" secondItem="iIR-rf-46y" secondAttribute="top" constant="8" id="2Gu-os-mHE"/>
                         <constraint firstItem="rf3-DR-Awm" firstAttribute="leading" secondItem="iIR-rf-46y" secondAttribute="leading" id="Ddk-Tu-0kc"/>
-                        <constraint firstItem="0Ty-OA-rGQ" firstAttribute="top" secondItem="iIR-rf-46y" secondAttribute="top" id="V8g-zr-FcU"/>
+                        <constraint firstItem="0Ty-OA-rGQ" firstAttribute="top" secondItem="zAu-q5-HhT" secondAttribute="bottom" id="V8g-zr-FcU"/>
                         <constraint firstItem="zAu-q5-HhT" firstAttribute="leading" secondItem="iIR-rf-46y" secondAttribute="leading" constant="8" id="WTl-9V-aoS"/>
                         <constraint firstItem="rf3-DR-Awm" firstAttribute="top" secondItem="0Ty-OA-rGQ" secondAttribute="bottom" constant="8" id="kID-43-bSg"/>
                         <constraint firstItem="0Ty-OA-rGQ" firstAttribute="leading" secondItem="iIR-rf-46y" secondAttribute="leading" id="tUK-re-t8s"/>

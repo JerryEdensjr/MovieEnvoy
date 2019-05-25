@@ -19,30 +19,42 @@ class MovieDetailHeaderView: UITableViewHeaderFooterView, Nibable {
     backdropImageView.image = nil
   }
 
-  func configure(with moviewSummary: MovieSummary) {
-    guard let backdropPath = moviewSummary.backdropPath else { return }
+  func configure(with movieSummary: MovieSummary) {
+    guard let backdropPath = movieSummary.backdropPath,
+      let title = movieSummary.title else { return }
+
+    styleMovieTitle(with: title)
     backdropImageView.download(url: MovieDBContext.shared.getBackdropURL(for: .BackdropLarge, for: backdropPath))
   }
 
   func update(with movieDetail: MovieDetail) {
-
-    let titleText = "\(movieDetail.title)\n(\(movieDetail.releaseYear))"
-
-    if let mediumFont = UIFont(name: "HelveticaNeue-Medium", size: 20.0),
-      let lightFont = UIFont(name: "HelveticaNeue-Light", size: 20.0) {
-
-      let attributedString = NSMutableAttributedString(string: titleText)
-
-      attributedString.addAttribute(.font, value: mediumFont, range: NSRange(location: 0, length: movieDetail.title.count))
-      attributedString.addAttribute(.font, value: lightFont, range: NSRange(location: movieDetail.title.count + 1, length: movieDetail.releaseYear.count + 2))
-      attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: attributedString.length))
-      movieTitleLabel.attributedText = attributedString
-
-    } else {
-      movieTitleLabel.text = titleText
-    }
-
+    styleMovieTitle(with: movieDetail.title)
     backdropImageView.download(url: MovieDBContext.shared.getBackdropURL(for: .BackdropLarge, for: movieDetail.backdropPath))
+  }
+
+}
+
+private extension MovieDetailHeaderView {
+  func styleMovieTitle(with movieTitle: String) {
+    if let attributedTitle = makeAttributedString(from: movieTitle) {
+      movieTitleLabel.attributedText = attributedTitle
+    } else {
+      movieTitleLabel.text = movieTitle
+    }
+  }
+
+  func makeAttributedString(from string: String) -> NSAttributedString? {
+    guard let mediumFont = UIFont(name: "HelveticaNeue-Medium", size: 20.0) else { return nil }
+
+    let attributedString = NSMutableAttributedString(string: string)
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.alignment = .center
+
+    attributedString.addAttribute(.font, value: mediumFont, range: NSRange(location: 0, length: string.count))
+    attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: string.count))
+    attributedString.addAttribute(.foregroundColor, value: UIColor.white, range: NSRange(location: 0, length: attributedString.length))
+
+    return attributedString
   }
 
 }
