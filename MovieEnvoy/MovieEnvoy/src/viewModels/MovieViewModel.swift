@@ -166,8 +166,9 @@ extension MovieViewModel: UITableViewDataSource {
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     if let cell = tableView.dequeueReusableCell(withIdentifier: MovieInfoTableViewCell.cellIdentifier()) as? MovieInfoTableViewCell {
-      let movie = self.movies[indexPath.row]
-      cell.configure(with: movie)
+      if let movie = self.movies[safe: indexPath.row] {
+        cell.configure(with: movie)
+      }
       return cell
     }
 

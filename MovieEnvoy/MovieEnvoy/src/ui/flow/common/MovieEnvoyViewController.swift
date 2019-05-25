@@ -30,6 +30,11 @@ class MovieEnvoyViewController: UIViewController {
     setUp()
   }
 
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+  }
+
   override var prefersStatusBarHidden: Bool {
     return false
   }
