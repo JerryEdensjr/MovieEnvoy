@@ -49,7 +49,7 @@ extension APIService: MovieService {
         let response = try self.getResponse(from: data, responseType: GetTopRatedMoviesResponseModel.self)
 
         DispatchQueue.main.async {
-          completion(.success(response.results), response.page, response.totalPages, response.totalResults)
+          completion(.success(response.results ?? [MovieSummary]()), response.page, response.totalPages, response.totalResults)
         }
 
       } catch {

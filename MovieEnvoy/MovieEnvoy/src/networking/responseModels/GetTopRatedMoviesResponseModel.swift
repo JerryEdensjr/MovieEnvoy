@@ -8,7 +8,7 @@ struct GetTopRatedMoviesResponseModel: Decodable {
   let page: Int
   let totalPages: Int
   let totalResults: Int
-  let results: [MovieSummary]
+  let results: [MovieSummary]?
 
   // error support
   let statusCode: Int?
