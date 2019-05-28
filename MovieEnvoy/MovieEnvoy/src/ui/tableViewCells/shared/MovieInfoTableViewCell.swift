@@ -15,11 +15,11 @@ class MovieInfoTableViewCell: UITableViewCell {
   fileprivate static var baseHeight: CGFloat = 80.5
 
   // MARK: outlets
-  @IBOutlet private var posterImageView: UIImageView!
-  @IBOutlet private var imageShadowView: UIView!
-  @IBOutlet private var movieTitle: UILabel!
-  @IBOutlet private var overview: UILabel!
-  @IBOutlet private var releaseDate: UILabel!
+  @IBOutlet internal var posterImageView: UIImageView!
+  @IBOutlet internal var imageShadowView: UIView!
+  @IBOutlet internal var movieTitle: UILabel!
+  @IBOutlet internal var overview: UILabel!
+  @IBOutlet internal var releaseDate: UILabel!
 
   // MARK: overrides
   override func awakeFromNib() {

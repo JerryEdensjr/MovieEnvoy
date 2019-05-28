@@ -12,7 +12,7 @@ import Kingfisher
 extension UIImageView {
 
   struct Constants {
-    static let ShadowViewTag = 554433
+    static let ShadowViewTag = 0xDEADBEEF
   }
 
   func download(url: String?, showIndicator: Bool = true, placeholder: UIImage? = nil, downsample: Bool = true) {
@@ -127,4 +127,99 @@ extension UIImageView {
     layer.mask = shapeLayer
   }
 
+}
+
+@IBDesignable class Placeholder: UIImageView {
+  /// Title text to render inside the image
+  @IBInspectable var title: String = ""
+
+  /// The color of the title text
+  @IBInspectable var textColor: UIColor = .white
+
+  /// The font size of the title text
+  @IBInspectable var textFontSize: CGFloat = 20
+
+  /// Whether to round the edges of the placeholder graphic.
+  /// This automatically rounds to the smallest of the width
+  /// or height of the view.
+  @IBInspectable var rounded: Bool = false
+
+  /// The label used to render title and size text
+  private var label: UILabel!
+
+  /// Adjustment in font size to make the title font slightly bigger
+  private let titleFontSizeAdjustment: CGFloat = 4
+
+  override required init(frame: CGRect) {
+    super.init(frame: frame)
+    configure()
+  }
+
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    configure()
+  }
+
+  override func awakeFromNib() {
+    super.awakeFromNib()
+    configure()
+  }
+
+  override func prepareForInterfaceBuilder() {
+    super.prepareForInterfaceBuilder()
+    configure()
+  }
+
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    configure()
+  }
+
+  func configure() {
+    if label == nil {
+      // make sure we don't render the label outside of ourselves
+      clipsToBounds = true
+
+      label = UILabel()
+      label.numberOfLines = 0
+      label.textAlignment = .center
+      addSubview(label)
+
+      // center the label inside the placeholder space
+      label.translatesAutoresizingMaskIntoConstraints = false
+      label.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+      label.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+
+    // apply rounding as needed
+    if rounded == true {
+      layer.cornerRadius = min(bounds.midX, bounds.midY)
+    }
+
+    // put the width and height for this view into a string
+    let width = Int(bounds.width)
+    let height = Int(bounds.height)
+    let size = "\(width)x\(height)"
+
+    // configure attributes of the size text
+    let sizeAttrs =  [NSAttributedString.Key.font: UIFont.systemFont(ofSize: textFontSize)]
+    let sizeString = NSAttributedString(string: size, attributes: sizeAttrs)
+
+    if title.isEmpty {
+      // if we don't have a size render the text immediately
+      label.attributedText = sizeString
+    } else {
+      // if we do have a title, prepare that with some attributes that are slightly
+      // bigger than the size
+      let titleAttrs = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: textFontSize + titleFontSizeAdjustment)]
+      let titleString = NSMutableAttributedString(string: "\(title)\n", attributes: titleAttrs)
+
+      // append the size string and put it inside the label
+      titleString.append(sizeString)
+      label.attributedText = titleString
+    }
+
+    // make sure the label color reflects the latest setting
+    label.textColor = textColor
+  }
 }

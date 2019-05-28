@@ -74,3 +74,10 @@ extension UIView {
   }
 
 }
+
+extension UIView {
+  func add(_ subviews: UIView...) {
+    subviews.forEach(addSubview)
+  }
+
+}

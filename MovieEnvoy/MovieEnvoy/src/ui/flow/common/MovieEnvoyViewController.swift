@@ -18,6 +18,7 @@ class MovieEnvoyViewController: UIViewController {
 
   // MARK: propeties
   private var previousTableViewWidth: CGFloat = 0.0
+  private var customTransition = CellToDetailTransition()
   internal let viewModel = MovieViewModel()
   internal let tableView = UITableView()
   internal var endpoint: APIEndpoint = .nowPlaying
@@ -79,5 +80,35 @@ extension MovieEnvoyViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {}
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}
+
+}
+
+extension MovieEnvoyViewController: UINavigationControllerDelegate, UIViewControllerTransitioningDelegate {
+  func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    switch operation {
+    case .push:
+      customTransition.transitionOperation = .push
+    case .pop:
+      customTransition.transitionOperation = .pop
+    case .none:
+      customTransition.transitionOperation = .none
+    @unknown default:
+      fatalError()
+    }
+    
+    return customTransition
+  }
+
+}
+
+extension MovieEnvoyViewController: TableViewCellProvider {
+  func selectedTableViewCell() -> UITableViewCell {
+    guard let indexPath = tableView.indexPathForSelectedRow,
+      let cell = tableView.cellForRow(at: indexPath) else {
+        return UITableViewCell()
+    }
+
+    return cell
+  }
 
 }

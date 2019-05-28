@@ -11,7 +11,11 @@ import UIKit
 class NowPlayingViewController: MovieEnvoyViewController, Storyboardable {
 
   // MARK: propeties
-  var coordinator: NowPlayingCoordinator?
+  var coordinator: NowPlayingCoordinator? {
+    didSet {
+      coordinator?.navigationController.delegate = self
+    }
+  }
   
   // MARK: outlets
   @IBOutlet weak var titlebar: UIView!
@@ -38,6 +42,8 @@ class NowPlayingViewController: MovieEnvoyViewController, Storyboardable {
 
 extension NowPlayingViewController {
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    super.tableView(tableView, didSelectRowAt: indexPath)
+
     guard let movie = viewModel.movies[safe: indexPath.row],
       let navController = navigationController else {
         fatalError("No movie data available for \(indexPath.row)")

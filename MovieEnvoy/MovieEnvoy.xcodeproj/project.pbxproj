@@ -72,6 +72,8 @@
 		634D2855227600870076ACB9 /* Collection+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632430D7226CDC7D00545DDB /* Collection+Extension.swift */; };
 		634D2857227603080076ACB9 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6374F304225F789C006987E5 /* APIService.swift */; };
 		634D28582276034B0076ACB9 /* MovieEnvoyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FF9D5D219CBA9D00C3ADF6 /* MovieEnvoyUITests.swift */; };
+		6352656E2299BB1A00276C04 /* CellToDetailTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6352656D2299BB1A00276C04 /* CellToDetailTransition.swift */; };
+		635265702299C4F400276C04 /* TableViewCellProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6352656F2299C4F400276C04 /* TableViewCellProvider.swift */; };
 		63606DA72263F87700CA02C4 /* GetPopularMovieResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63606DA62263F87700CA02C4 /* GetPopularMovieResponseModel.swift */; };
 		63606DAA2263FB8600CA02C4 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63606DA92263FB8600CA02C4 /* MovieViewModel.swift */; };
 		63606DAC2264D74500CA02C4 /* GetTopRatedMoviesResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63606DAB2264D74500CA02C4 /* GetTopRatedMoviesResponseModel.swift */; };
@@ -171,6 +173,8 @@
 		634D282E2275F15F0076ACB9 /* MovieEnvoyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieEnvoyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		634D28302275F15F0076ACB9 /* MovieEnvoyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieEnvoyTests.swift; sourceTree = "<group>"; };
 		634D28322275F15F0076ACB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6352656D2299BB1A00276C04 /* CellToDetailTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellToDetailTransition.swift; sourceTree = "<group>"; };
+		6352656F2299C4F400276C04 /* TableViewCellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProvider.swift; sourceTree = "<group>"; };
 		63606DA62263F87700CA02C4 /* GetPopularMovieResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPopularMovieResponseModel.swift; sourceTree = "<group>"; };
 		63606DA92263FB8600CA02C4 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		63606DAB2264D74500CA02C4 /* GetTopRatedMoviesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopRatedMoviesResponseModel.swift; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 			children = (
 				63C15A0C227630710006CA8B /* Nibable.swift */,
 				63167A06226BEA5C004180DC /* Storyboardable.swift */,
+				6352656F2299C4F400276C04 /* TableViewCellProvider.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -331,6 +336,14 @@
 				634D28322275F15F0076ACB9 /* Info.plist */,
 			);
 			path = MovieEnvoyTests;
+			sourceTree = "<group>";
+		};
+		6352656C2299BAE200276C04 /* transitions */ = {
+			isa = PBXGroup;
+			children = (
+				6352656D2299BB1A00276C04 /* CellToDetailTransition.swift */,
+			);
+			path = transitions;
 			sourceTree = "<group>";
 		};
 		63606DA82263FB6600CA02C4 /* viewModels */ = {
@@ -508,6 +521,7 @@
 				6374F2F4225F6FC5006987E5 /* Extensions */,
 				6374F2FB225F7639006987E5 /* networking */,
 				63167A05226BEA43004180DC /* protocols */,
+				6352656C2299BAE200276C04 /* transitions */,
 				63FF9D6E219CBBBB00C3ADF6 /* ui */,
 				63606DA82263FB6600CA02C4 /* viewModels */,
 			);
@@ -950,6 +964,7 @@
 				63167A00226BE55E004180DC /* TopRatedCoordinator.swift in Sources */,
 				631F96DD22958C2600B8FEBA /* GetMovieDBConfigResponseModel.swift in Sources */,
 				634D27FE2275290F0076ACB9 /* UIViewController+Extension.swift in Sources */,
+				635265702299C4F400276C04 /* TableViewCellProvider.swift in Sources */,
 				6374F305225F789C006987E5 /* APIService.swift in Sources */,
 				6374F307225F78EC006987E5 /* APIServiceContext.swift in Sources */,
 				631F96E32295934F00B8FEBA /* MovieDBContext.swift in Sources */,
@@ -976,6 +991,7 @@
 				63606DAC2264D74500CA02C4 /* GetTopRatedMoviesResponseModel.swift in Sources */,
 				634D28102275EC4B0076ACB9 /* MovieDetailViewModel.swift in Sources */,
 				634D280222752EC40076ACB9 /* MovieDetail.swift in Sources */,
+				6352656E2299BB1A00276C04 /* CellToDetailTransition.swift in Sources */,
 				63374B6C219CCBA6008214F4 /* ComingSoonViewController.swift in Sources */,
 				632430D8226CDC7D00545DDB /* Collection+Extension.swift in Sources */,
 				6374F2F8225F7016006987E5 /* UIView+Extension.swift in Sources */,

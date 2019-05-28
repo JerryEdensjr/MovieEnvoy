@@ -11,7 +11,7 @@ import UIKit
 class MovieDetailViewController: UIViewController {
 
   // MARK: - outlets
-  @IBOutlet private var tableView: UITableView!
+  @IBOutlet var tableView: UITableView!
 
   // MARK: - properties
   var coordinator: MovieDetailCoordinator?
