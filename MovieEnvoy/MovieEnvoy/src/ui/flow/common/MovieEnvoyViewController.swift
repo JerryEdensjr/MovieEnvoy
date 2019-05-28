@@ -23,8 +23,6 @@ class MovieEnvoyViewController: UIViewController {
   internal let tableView = UITableView()
   internal var endpoint: APIEndpoint = .nowPlaying
 
-  // MARK: outlets
-
   // MARK: overrides
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -40,6 +38,9 @@ class MovieEnvoyViewController: UIViewController {
     return false
   }
 
+}
+
+private extension MovieEnvoyViewController {
   // MARK: setup
   private func setUp() {
     view.backgroundColor = .magenta
@@ -76,7 +77,7 @@ class MovieEnvoyViewController: UIViewController {
 }
 
 extension MovieEnvoyViewController: UITableViewDelegate {
-  // subclasses should override these funcs
+  // subclasses should override these methods
   func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {}
 
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {}

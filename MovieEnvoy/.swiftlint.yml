@@ -1,5 +1,5 @@
 disabled_rules:  # rules you want to exclude
-#warnings (We should have a minimum number of excluded warnings in this list)
+#warnings (There should be a minimum number of excluded warnings in this list)
   - block_based_kvo
   - cyclomatic_complexity
   - file_length
@@ -10,8 +10,9 @@ disabled_rules:  # rules you want to exclude
   - type_body_length
   - identifier_name
 
-# errors (We should make sure we have no excluded errors in this list)
+# errors (There should no excluded errors in this list)
 
+# excluded paths
 excluded: # paths to exclude
   - Pods
 

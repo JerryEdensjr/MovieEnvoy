@@ -114,7 +114,6 @@ private extension CellToDetailTransition {
     toContainerView.alpha = 0.0
 
     animationView.add(toContainerView,
-//                      cellSnaphot)
                       posterSnapshot,
                       releaseDateSnapshot,
                       movieTitleLabelSnapshot,
@@ -146,8 +145,6 @@ private extension CellToDetailTransition {
         guard let headerView = toVC.tableView.headerView(forSection: 0) else { return }
         var frame = self.frameOfViewInWindowsCoordinateSystem(headerView)
         frame.origin.y += 44.0
-//        cellSnaphot.frame.origin = frame.origin
-//        cellSnaphot.alpha = 0.0
         posterSnapshot.frame.origin = frame.origin
         posterSnapshot.alpha = 0.0
         releaseDateSnapshot.frame.origin = frame.origin
@@ -160,15 +157,12 @@ private extension CellToDetailTransition {
 
       UIView.addKeyframe(withRelativeStartTime: 0.35, relativeDuration: 0.65, animations: {
         toTableView.alpha = 1.0
-
         toView.alpha = 1.0
-//        cellSnaphot.alpha = 0.0
       })
 
     }, completion: { (finished) in
       if finished {
         fromTableViewCell.alpha = 1.0
-//        cellSnaphot.removeFromSuperview()
         posterSnapshot.removeFromSuperview()
         releaseDateSnapshot.removeFromSuperview()
         movieTitleLabelSnapshot.removeFromSuperview()

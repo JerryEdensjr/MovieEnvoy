@@ -175,6 +175,7 @@
 		634D28322275F15F0076ACB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6352656D2299BB1A00276C04 /* CellToDetailTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellToDetailTransition.swift; sourceTree = "<group>"; };
 		6352656F2299C4F400276C04 /* TableViewCellProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProvider.swift; sourceTree = "<group>"; };
+		63526571229D7DC900276C04 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
 		63606DA62263F87700CA02C4 /* GetPopularMovieResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPopularMovieResponseModel.swift; sourceTree = "<group>"; };
 		63606DA92263FB8600CA02C4 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		63606DAB2264D74500CA02C4 /* GetTopRatedMoviesResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTopRatedMoviesResponseModel.swift; sourceTree = "<group>"; };
@@ -596,8 +597,9 @@
 		63FF9D78219CBCCF00C3ADF6 /* support files */ = {
 			isa = PBXGroup;
 			children = (
-				63FF9D46219CBA9C00C3ADF6 /* LaunchScreen.storyboard */,
+				63526571229D7DC900276C04 /* .swiftlint.yml */,
 				63FF9D49219CBA9C00C3ADF6 /* Info.plist */,
+				63FF9D46219CBA9C00C3ADF6 /* LaunchScreen.storyboard */,
 			);
 			name = "support files";
 			sourceTree = "<group>";
